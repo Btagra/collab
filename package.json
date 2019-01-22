@@ -1,0 +1,26 @@
+{
+  "name": "collab",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "https://github.com/Btagra/collab.git",
+  "author": "Bharti <tagra.bharti@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "install": "cd client && yarn install;",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.0",
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "express": "^4.15.4",
+    "if-env": "^1.0.4",
+    "mongoose": "^5.0.17"
+  }
+}

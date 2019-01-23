@@ -15,7 +15,7 @@ class Home extends Component {
                         <h1>
                             Hello there! You absolutely don't have to, put if you'd like use
                             the grid components to help layout your pages, feel free!
-            </h1>
+                        </h1>
                     </Col>
                 </Row>
             </Container>

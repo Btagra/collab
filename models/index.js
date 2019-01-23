@@ -5,5 +5,7 @@
 //collect and export all of your models together here
 
 module.exports = {
-    User: require("./userInfo")
+    UserInfo: require("./userInfo"),
+    User: require("./User"),
+    Note: require("./Note")
 };

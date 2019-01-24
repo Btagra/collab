@@ -1,7 +1,7 @@
 import firebase from "firebase";
 
 const config = {
-    apiKey: process.env.REACT_APP_FIREBASE_API,
+    apiKey: process.env.REACT_APP_FIREBASE_API="AIzaSyAvpYteIFgohiNWveJMw4JwZKLbmY6bHf4",
     authDomain: "collab-30acf.firebaseapp.com",
     databaseURL: "https://collab-30acf.firebaseio.com",
     projectId: "collab-30acf",

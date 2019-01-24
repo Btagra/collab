@@ -5,7 +5,7 @@ const userInfoSchema = new Schema({
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
     email: { type: String, required: true, lowercase: true },
-    image: {type: String, required: true },
+    image: { type: String, required: true },
     portfolios: [String],
     bio: String,
     instruments: [String],
@@ -14,6 +14,6 @@ const userInfoSchema = new Schema({
     date: { type: Date, default: Date.now }
 });
 
-const User = mongoose.model("User", userInfoSchema);
+const UserInfo = mongoose.model("UserInfo", userInfoSchema);
 
-module.exports = User;
+module.exports = UserInfo;

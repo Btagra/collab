@@ -8,7 +8,29 @@ class Form extends Component {
                 <Container>
                     <Row>
                         <Col size="md-12">
-                            <p>hello</p>
+                            <form>
+                                <label>
+                                    First Name: 
+                                    <input type="text" name="firstName" />
+                                </label>
+                                <input type="submit" value="Submit" />
+                            </form>
+                            <br />
+                            <form>
+                                <label>
+                                    Last Name:
+                                    <input type="text" name="lastName" />
+                                </label>
+                                <input type="submit" value="Submit" />
+                            </form>
+                            <br />
+                            <form>
+                                <label>
+                                    Email: 
+                                    <input type="text" name="email" />
+                                </label>
+                                <input type="submit" value="Submit" />
+                            </form>
                         </Col>
                     </Row>
                 </Container>

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// import axios from "axios";
 
 class Image extends Component {
     state = { selectedFile: null }
@@ -9,6 +10,18 @@ class Image extends Component {
 
     uploadHandler = () => {
         console.log(this.state.selectedFile);
+
+        const formData = new FormData()
+
+        formData.append(
+            'myFile',
+            this.state.selectedFile,
+            this.state.selectedFile.name
+        )
+
+        console.log(formData)
+
+        // Add mongodb url in axios.post("url", formData)
     }
 
     render() {

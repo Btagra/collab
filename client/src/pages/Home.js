@@ -5,6 +5,7 @@ import { Col, Row, Container } from "../components/Grid";
 import LoginLogoutButton from "../components/LoginLogoutButton";
 import Notes from "../components/Notes";
 import Navbar from "../components/Navbar";
+
 class Home extends Component {
     state = {
         uid: null,

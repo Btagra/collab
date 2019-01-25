@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Col, Row, Container } from "../components/Grid";
-import { FirstName, LastName, Email } from "../components/Forms"
+import { FirstName, LastName, Email, Image } from "../components/Forms"
 
 class ProfileInfo extends Component {
     render() {
@@ -12,6 +12,7 @@ class ProfileInfo extends Component {
                             <FirstName />
                             <LastName />
                             <Email />
+                            <Image />
                             {/* <form>
                                 <label>
                                     First Name: 

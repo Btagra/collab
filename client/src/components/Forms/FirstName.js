@@ -23,8 +23,8 @@ class FirstName extends Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <label>
-                First Name: 
-                <input type="text" value={this.state.value} onChange={this.handleChange} />
+                    First Name: 
+                    <input type="text" value={this.state.value} onChange={this.handleChange} />
                 </label>
                 <input type="submit" value="Submit" />
             </form>

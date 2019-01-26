@@ -1,18 +1,23 @@
 import React from "react";
-import dotenv from "dotenv";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from "./pages/Home";
-import ProfileInfo from "./pages/ProfileInfo";
-import NoMatch from "./pages/NoMatch";
-dotenv.config();
-const App = () => (
-  <Router>
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/form" component={ProfileInfo} />
-      <Route component={NoMatch} />
-    </Switch>
-  </Router>
-);
+import Login from "./pages/Login";
+import User from "./pages/User";
+import Form from "./pages/Form";
+
+function App() {
+  return (
+    <BrowserRouter>
+      <div>
+        <Switch>
+          <Route exact path="/" component={User} />
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/form" component={Form} />
+        </Switch>
+      </div>
+    </BrowserRouter>
+  );
+}
 
 export default App;

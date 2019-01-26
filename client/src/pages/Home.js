@@ -1,87 +1,34 @@
-import React, { Component } from "react";
-import axios from "axios";
-import firebase from "../firebase";
-import { Col, Row, Container } from "../components/Grid";
-import LoginLogoutButton from "../components/LoginLogoutButton";
-import Notes from "../components/Notes";
-import Navbar from "../components/Navbar";
+import React, { Component } from 'react';
+import fire from '../config/Fire';
+import { Nav, NavItem, Button, Navbar } from 'react-bootstrap';
 
 class Home extends Component {
-    state = {
-        uid: null,
-        displayName: null,
-        authTypes: ["Google"]
-    };
-    componentDidMount() {
-        firebase.auth().onAuthStateChanged(user => {
-            if (user) {
-                this.authHandler({ user });
-            }
-        });
+    constructor(props) {
+        super(props);
+        this.logout = this.logout.bind(this);
     }
 
-    authHandler = authData => {
-        const { uid, displayName } = authData.user;
-        axios.get(`/api/user/${uid}`).then(res => {
-            if (res.data.length === 0) {
-                axios.post("/api/user/create", { uid }).then(res => {
-                    this.setState({
-                        uid,
-                        displayName
-                    });
-                });
-            } else {
-                this.setState({
-                    uid,
-                    displayName
-                });
-            }
-        });
-        //check if user exists in mongo db, if not create user, if so set state equal to user
-        //set the state of the inventory to reflect current user
-    };
-
-    login = provider => {
-        const authProvider = new firebase.auth[`${provider}AuthProvider`]();
-        firebase
-            .auth()
-            .signInWithPopup(authProvider)
-            .then(this.authHandler);
-    };
-
-    logout = async () => {
-        await firebase.auth().signOut();
-        this.setState({ uid: null, displayName: null });
-    };
+    logout() {
+        fire.auth().signOut();
+    }
 
     render() {
-        const message = (
-            <div className="navbar-brand">
-                {this.state.displayName || "Please Login!"}
-            </div>
-        );
-        const authButtons = this.state.uid ? (
-            <LoginLogoutButton logout={this.logout} />
-        ) : (
-                this.state.authTypes.map((type, i) => {
-                    return <LoginLogoutButton key={i} login={this.login} authType={type} />;
-                })
-            );
-
         return (
-            <>
-                <Navbar>
-                    {message}
-                    {authButtons}
-                </Navbar>
-                <Container>
-                    <Row>
-                        <Col size="md-12">
-                            {this.state.uid && <Notes uid={this.state.uid} />}
-                        </Col>
-                    </Row>
-                </Container>
-            </>
+            <Navbar inverse collapseOnSelect>
+                <Navbar.Header>
+                    <Navbar.Brand>
+                        <h1>Collab</h1>
+                    </Navbar.Brand>
+                    <Navbar.Toggle />
+                </Navbar.Header>
+                <Navbar.Collapse>
+                    <Nav pullRight>
+                        <NavItem eventKey={1}>
+                            <Button onClick={this.logout}>Logout</Button>
+                        </NavItem>
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
         );
     }
 }

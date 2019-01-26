@@ -1,14 +1,19 @@
 import React, { Component } from "react";
 import { Col, Row, Container } from "../components/Grid";
+import { FirstName, LastName, Email, Image } from "../components/Forms"
 
-class Form extends Component {
+class ProfileInfo extends Component {
     render() {
         return (
             <>
                 <Container>
                     <Row>
                         <Col size="md-12">
-                            <form>
+                            <FirstName />
+                            <LastName />
+                            <Email />
+                            <Image />
+                            {/* <form>
                                 <label>
                                     First Name: 
                                     <input type="text" name="firstName" />
@@ -30,7 +35,7 @@ class Form extends Component {
                                     <input type="text" name="email" />
                                 </label>
                                 <input type="submit" value="Submit" />
-                            </form>
+                            </form> */}
                         </Col>
                     </Row>
                 </Container>
@@ -39,4 +44,4 @@ class Form extends Component {
     };
 }
 
-export default Form;
+export default ProfileInfo;

@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import User from "./pages/User";
 import Form from "./pages/Form";
+import AppChat from "./components/App-Chat/index";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route exact path="/home" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/form" component={Form} />
+          <Route exact path="/chat" component={AppChat} />
         </Switch>
       </div>
     </BrowserRouter>

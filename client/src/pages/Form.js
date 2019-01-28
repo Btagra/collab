@@ -124,7 +124,7 @@ class Form1 extends React.Component {
                             <Checkbox inline>Other (Make sure to list in bio!)</Checkbox>
                         </FormGroup>
                         
-                        <FormGroup controlId="formControlsSelectMultiple">
+                        {/* <FormGroup controlId="formControlsSelectMultiple">
                             <ControlLabel>What Instruments/Technologies Do You Use?</ControlLabel>
                             <FormControl 
                             style={{ height: 150}} 
@@ -146,7 +146,7 @@ class Form1 extends React.Component {
                                 <option value="select">Logic Pro</option>
                                 <option value="select">Other (List in Bio!)</option>
                             </FormControl>
-                        </FormGroup>
+                        </FormGroup> */}
                     </Form>
                     <Link to={`/`}><Button>Submit!!</Button></Link>
                 </Grid>

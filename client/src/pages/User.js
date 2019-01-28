@@ -9,6 +9,7 @@ class User extends Component {
         this.state = {
             user: {},
         }
+
     }
 
     componentDidMount() {
@@ -17,6 +18,8 @@ class User extends Component {
 
     authListener = () => {
         fire.auth().onAuthStateChanged((user) => {
+            console.log(user.displayName);
+
             if (user) {
                 this.setState({ user });
             } else {

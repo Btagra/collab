@@ -5,6 +5,8 @@ import Login from "./pages/Login";
 import User from "./pages/User";
 import Form from "./pages/Form";
 import AppChat from "./components/App-Chat/index";
+import dotenv from "dotenv";
+dotenv.config();
 
 function App() {
   return (

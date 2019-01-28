@@ -8,8 +8,8 @@ module.exports = {
     },
     newProfile: (req, res) => {
         db.Profile.create({
-            firstname: req.body.firstname,
-            lastname: req.body.lastname
+            firstName: req.body.firstname,
+            lastName: req.body.lastname
         })
             .then(dbProfile => {
                 return db.User.findOneAndUpdate(

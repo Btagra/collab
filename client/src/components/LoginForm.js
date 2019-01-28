@@ -2,6 +2,7 @@ import React from 'react';
 import fire from '../config/Fire';
 import { Modal, Button, Form, FormGroup, ControlLabel, FormControl, Row, Col } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
+import API from '../utils/API';
 class LoginForm extends React.Component {
 
     state = {
@@ -37,9 +38,13 @@ class LoginForm extends React.Component {
             }
             else {
                 fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
-                }).then((u) => {
                     const { history } = this.props;
-                    history.push('/form')
+                    const uid = u.user.uid
+                    const userData = { uid }
+                    localStorage.setItem("uid", uid)
+                    API.createUser(userData).then(
+                        history.push('/form')
+                    )
                 })
                     .catch((error) => {
                         console.log(error);

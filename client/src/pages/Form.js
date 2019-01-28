@@ -1,26 +1,31 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { 
+import {
     Button, Form, FormGroup, ControlLabel, FormControl, Grid, Alert, HelpBlock
 } from 'react-bootstrap';
+import API from "../utils/API"
 
 function FieldGroup({ id, label, help, ...props }) {
     return (
-      <FormGroup controlId={id}>
-        <ControlLabel>{label}</ControlLabel>
-        <FormControl {...props} />
-        {help && <HelpBlock>{help}</HelpBlock>}
-      </FormGroup>
+        <FormGroup controlId={id}>
+            <ControlLabel>{label}</ControlLabel>
+            <FormControl {...props} />
+            {help && <HelpBlock>{help}</HelpBlock>}
+        </FormGroup>
     );
-  }
+}
 
 class Form1 extends React.Component {
     state = {
         firstname: '',
-        lastname: '',
+        lastname: ''
+        // uid: null
+    }
+    componentDidMount() {
+        const uid = localStorage.getItem("uid")
+        this.setState({ uid })
     }
 
-    
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -32,9 +37,17 @@ class Form1 extends React.Component {
     handleFormSubmit = event => {
         event.preventDefault();
         if (!this.state.firstname || !this.state.lastname) {
-            alert("Fill all the fields");
+            alert("Fill all fields");
         }
-    };
+        else {
+            const { history } = this.props;
+            const profileData = { ...this.state }
+            console.log(profileData);
+            API.createProfile(profileData)
+                .then(history.push('/'))
+        }
+    }
+
 
     render() {
         return (
@@ -81,10 +94,10 @@ class Form1 extends React.Component {
                         />
                         <FormGroup controlId="formControlsTextarea">
                             <ControlLabel>Bio</ControlLabel>
-                            <FormControl componentClass="textarea" placeholder="Write a few sentences about yourself!"/>
+                            <FormControl componentClass="textarea" placeholder="Write a few sentences about yourself!" />
                         </FormGroup>
                     </Form>
-                    <Link to={`/`}><Button>Submit!!</Button></Link>
+                    <Button onClick={this.handleFormSubmit}>Submit!!</Button>
                 </Grid>
             </>
         );

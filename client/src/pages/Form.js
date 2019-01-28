@@ -18,12 +18,23 @@ class Form1 extends React.Component {
     state = {
         firstname: '',
         lastname: '',
+        q1: '',
+        q2: '',
+        q3: '',
+        q4: '',
+        q5: '',
+        q6: '',
+        q7: '',
+        q8: '',
+        q9: '',
+        q10: '',
     }
 
     
 
     handleInputChange = event => {
         const { name, value } = event.target;
+        console.log('this is our name and this is our value !!', name, value)
         this.setState({
             [name]: value
         });
@@ -31,9 +42,13 @@ class Form1 extends React.Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
+
+        console.log('form submitted!!!!', this.state)
+
         if (!this.state.firstname || !this.state.lastname) {
             alert("Fill all the fields");
         }
+
     };
 
     render() {
@@ -93,7 +108,7 @@ class Form1 extends React.Component {
      
              <h3><strong>Question 1</strong></h3>
              <h4>You enjoy playing the piano and writing chord prgressions</h4>
-             <select class="chosen-select" id="q1">
+             <select name={'q1'} onChange={this.handleInputChange} className="chosen-select" id="q1">
                  <option value=""></option>
                  <option value="1">1 (Strongly Disagree)</option>
                  <option value="2">2</option>
@@ -104,7 +119,7 @@ class Form1 extends React.Component {
      
              <h3><strong>Question 2</strong></h3>
              <h4>You are an avid guitar player</h4>
-             <select class="chosen-select" id="q2">
+             <select name={'q2'} onChange={this.handleInputChange} className="chosen-select" id="q2">
                  <option value=""></option>
                  <option value="1">1 (Strongly Disagree)</option>
                  <option value="2">2</option>
@@ -116,7 +131,7 @@ class Form1 extends React.Component {
      
              <h3><strong>Question 3</strong></h3>
              <h4>When it comes to playing the drums you are a natural</h4>
-             <select class="chosen-select" id="q3">
+             <select name={'q3'} onChange={this.handleInputChange} className="chosen-select" id="q3">
                  <option value=""></option>
                  <option value="1">1 (Strongly Disagree)</option>
                  <option value="2">2</option>
@@ -128,7 +143,7 @@ class Form1 extends React.Component {
      
              <h3><strong>Question 4</strong></h3>
              <h4>You have a deep love for live instrumentation</h4>
-             <select class="chosen-select" id="q4">
+             <select name={'q4'} onChange={this.handleInputChange} className="chosen-select" id="q4">
                  <option value=""></option>
                  <option value="1">1 (Strongly Disagree)</option>
                  <option value="2">2</option>
@@ -140,7 +155,7 @@ class Form1 extends React.Component {
      
              <h3><strong>Question 5</strong></h3>
              <h4>You consider yourself a vocalist</h4>
-             <select class="chosen-select" id="q5">
+             <select name={'q5'} onChange={this.handleInputChange} className="chosen-select" id="q5">
                  <option value=""></option>
                  <option value="1">1 (Strongly Disagree)</option>
                  <option value="2">2</option>
@@ -152,7 +167,7 @@ class Form1 extends React.Component {
      
              <h3><strong>Question 6</strong></h3>
              <h4>Producing music and making beats in your passion</h4>
-             <select class="chosen-select" id="q6">
+             <select name={'q6'} onChange={this.handleInputChange} className="chosen-select" id="q6">
                  <option value=""></option>
                  <option value="1">1 (Strongly Disagree)</option>
                  <option value="2">2</option>
@@ -164,7 +179,7 @@ class Form1 extends React.Component {
      
              <h3><strong>Question 7</strong></h3>
              <h4>Hip Hop and Rap is your favorite genre</h4>
-             <select class="chosen-select" id="q7">
+             <select name={'q7'} onChange={this.handleInputChange} className="chosen-select" id="q7">
                  <option value=""></option>
                  <option value="1">1 (Strongly Disagree)</option>
                  <option value="2">2</option>
@@ -175,7 +190,7 @@ class Form1 extends React.Component {
      
              <h3><strong>Question 8</strong></h3>
              <h4>Rock is your favorite genre</h4>
-             <select class="chosen-select" id="q8">
+             <select name={'q8'} onChange={this.handleInputChange} className="chosen-select" id="q8">
                  <option value=""></option>
                  <option value="1">1 (Strongly Disagree)</option>
                  <option value="2">2</option>
@@ -186,7 +201,7 @@ class Form1 extends React.Component {
      
              <h3><strong>Question 9</strong></h3>
              <h4>You enjoy Electronic music and unique sounds</h4>
-             <select class="chosen-select" id="q9">
+             <select name={'q9'} onChange={this.handleInputChange} className="chosen-select" id="q9">
                  <option value=""></option>
                  <option value="1">1 (Strongly Disagree)</option>
                  <option value="2">2</option>
@@ -197,7 +212,7 @@ class Form1 extends React.Component {
      
              <h3><strong>Question 10</strong></h3>
              <h4>You enjoy writing songs</h4>
-             <select class="chosen-select" id="q10">
+             <select name={'q10'} onChange={this.handleInputChange} className="chosen-select" id="q10">
                  <option value=""></option>
                  <option value="1">1 (Strongly Disagree)</option>
                  <option value="2">2</option>
@@ -207,7 +222,9 @@ class Form1 extends React.Component {
              </select>
              
                </div>
-               <Link to={`/`}><Button>Submit!!</Button></Link>
+               {/* <Link to={`/`}> */}
+               <Button onClick={this.handleFormSubmit}>Submit!!</Button>
+               {/* </Link> */}
                </Grid>  
             </>
             

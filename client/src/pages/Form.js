@@ -84,8 +84,8 @@ class Form1 extends React.Component {
                             <FormControl componentClass="textarea" placeholder="Write a few sentences about yourself!"/>
                         </FormGroup>
                     </Form>
-                    <Link to={`/`}><Button>Submit!!</Button></Link>
-                </Grid>
+                   
+               
                 <div>
 
              <h2>Questions</h2>
@@ -205,7 +205,10 @@ class Form1 extends React.Component {
                  <option value="4">4</option>
                  <option value="5">5 (Strongly Agree)</option>
              </select>
-               </div>  
+             
+               </div>
+               <Link to={`/`}><Button>Submit!!</Button></Link>
+               </Grid>  
             </>
             
                     

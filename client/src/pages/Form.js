@@ -61,15 +61,6 @@ class Form1 extends React.Component {
                                 placeholder="Shmurda"
                                 onChange={this.handleInputChange} />
                         </FormGroup>
-                        {/* <FormGroup controlId="formInlineName">
-                            <ControlLabel>Email</ControlLabel>
-                            <FormControl
-                                type=""
-                                name="email"
-                                value={this.state.email}
-                                placeholder="headhoncho@tunes.com"
-                                onChange={this.handleInputChange} />
-                        </FormGroup> */}
                         <FieldGroup
                             id="formControlsFile"
                             type="file"
@@ -79,6 +70,13 @@ class Form1 extends React.Component {
                         <FormGroup controlId="formControlsTextarea">
                             <ControlLabel>Bio</ControlLabel>
                             <FormControl componentClass="textarea" placeholder="Write a few sentences about yourself!"/>
+                        </FormGroup>
+                        <FormGroup controlId="formControlsSelectMultiple">
+                            <ControlLabel>What Instruments Do You Play?</ControlLabel>
+                            <FormControl componentClass="select" multiple>
+                                <option value="select">select (multiple)</option>
+                                <option value="other">...</option>
+                            </FormControl>
                         </FormGroup>
                     </Form>
                     <Link to={`/`}><Button>Submit!!</Button></Link>

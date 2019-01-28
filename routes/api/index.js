@@ -4,7 +4,7 @@ const userRoutes = require("./users");
 const noteRoutes = require("./notes");
 
 router.use("/user", userRoutes);
-router.use("/notes", noteRoutes);
+router.use("/profiles", profileRoutes);
 
 // For anything else, render the html page
 router.use(function (req, res) {

@@ -1,20 +1,20 @@
 var db = require("../models");
 module.exports = {
-    findNotes: (req, res) => {
+    findProfiles: (req, res) => {
         db.User.find({ uid: req.params.uid })
-            .populate("notes")
+            .populate("profiles")
             .then(result => res.json(result))
             .catch(err => res.status(422).json(err));
     },
-    newNote: (req, res) => {
-        db.Note.create({
-            title: req.body.title,
-            body: req.body.body
+    newProfile: (req, res) => {
+        db.Profile.create({
+            firstname: req.body.firstname,
+            lastname: req.body.lastname
         })
-            .then(dbNote => {
+            .then(dbProfile => {
                 return db.User.findOneAndUpdate(
                     { uid: req.body.uid },
-                    { $push: { notes: dbNote._id } },
+                    { $push: { profiles: dbProfile._id } },
                     { new: true }
                 );
             })

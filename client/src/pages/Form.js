@@ -109,17 +109,23 @@ class Form1 extends React.Component {
                         <ControlLabel>What Instruments/Technologies Do You Use?</ControlLabel>
 
                         <FormGroup>                           
-                            <Checkbox inline>Guitar (Electric)</Checkbox><Checkbox inline>Guitar (Acoustic)</Checkbox>
+                            <Checkbox inline>Guitar (Electric)</Checkbox>
+                            <Checkbox inline>Guitar (Acoustic)</Checkbox>
                             <br/>
-                            <Checkbox inline>Bass (Electric)</Checkbox><Checkbox inline>Bass (Acoustic)</Checkbox>
+                            <Checkbox inline>Bass (Electric)</Checkbox>
+                            <Checkbox inline>Bass (Acoustic)</Checkbox>
                             <br/>
-                            <Checkbox inline>Piano</Checkbox><Checkbox inline>Violin</Checkbox>
+                            <Checkbox inline>Piano</Checkbox>
+                            <Checkbox inline>Violin</Checkbox>
                             <br/>
-                            <Checkbox inline>Harmonica</Checkbox><Checkbox inline>Synths</Checkbox>
+                            <Checkbox inline>Harmonica</Checkbox>
+                            <Checkbox inline>Synths</Checkbox>
                             <br/>
-                            <Checkbox inline>FL Studio</Checkbox><Checkbox inline>Pro Tools</Checkbox>
+                            <Checkbox inline>FL Studio</Checkbox>
+                            <Checkbox inline>Pro Tools</Checkbox>
                             <br/>
-                            <Checkbox inline>Ableton Live</Checkbox><Checkbox inline>Logic Pro</Checkbox>
+                            <Checkbox inline>Ableton Live</Checkbox>
+                            <Checkbox inline>Logic Pro</Checkbox>
                             <br/>
                             <Checkbox inline>Other (Make sure to list in bio!)</Checkbox>
                         </FormGroup>

@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const userInfoSchema = new Schema({
+const ProfileSchema = new Schema({
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
-    email: { type: String, required: true, lowercase: true },
+    // email: { type: String, required: true, lowercase: true },
     image: { data: Buffer, contentType: String },
     portfolios: [String],
     bio: String,
@@ -14,6 +14,6 @@ const userInfoSchema = new Schema({
     date: { type: Date, default: Date.now }
 });
 
-const UserInfo = mongoose.model("UserInfo", userInfoSchema);
+const Profile = mongoose.model("Profile", ProfileSchema);
 
-module.exports = UserInfo;
+module.exports = Profile;

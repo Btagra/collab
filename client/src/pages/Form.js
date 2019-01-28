@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { 
-    Button, Form, FormGroup, ControlLabel, FormControl, Grid, Alert
+    Button, Form, FormGroup, ControlLabel, FormControl, Grid, Alert, HelpBlock
 } from 'react-bootstrap';
 
 function FieldGroup({ id, label, help, ...props }) {
@@ -9,10 +9,10 @@ function FieldGroup({ id, label, help, ...props }) {
       <FormGroup controlId={id}>
         <ControlLabel>{label}</ControlLabel>
         <FormControl {...props} />
-        {/* {help && <HelpBlock>{help}</HelpBlock>} */}
+        {help && <HelpBlock>{help}</HelpBlock>}
       </FormGroup>
     );
-}
+  }
 
 class Form1 extends React.Component {
     state = {
@@ -73,8 +73,8 @@ class Form1 extends React.Component {
                         <FieldGroup
                             id="formControlsFile"
                             type="file"
-                            label="File"
-                            // help="Example block-level help text here."
+                            label="Profile Picture"
+                            help="Upload a profile picture."
                         />
                         <FormGroup controlId="formControlsTextarea">
                             <ControlLabel>Bio</ControlLabel>

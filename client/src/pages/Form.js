@@ -69,13 +69,22 @@ class Form1 extends React.Component {
                         />
                         <FormGroup controlId="formControlsTextarea">
                             <ControlLabel>Bio</ControlLabel>
-                            <FormControl componentClass="textarea" placeholder="Write a few sentences about yourself!"/>
+                            <FormControl componentClass="textarea" style={{ height: 150}} placeholder="Write a few sentences about yourself!"/>
                         </FormGroup>
                         <FormGroup controlId="formControlsSelectMultiple">
-                            <ControlLabel>What Instruments Do You Play?</ControlLabel>
-                            <FormControl componentClass="select" multiple>
-                                <option value="select">select (multiple)</option>
-                                <option value="other">...</option>
+                            <ControlLabel>What Instruments/Technologies Do You Use?</ControlLabel>
+                            <FormControl style={{ height: 150}} componentClass="select" multiple>
+                                <option value="select">Guitar</option>
+                                <option value="select">Bass</option>
+                                <option value="select">Piano</option>
+                                <option value="select">Violin</option>
+                                <option value="select">Harmonica</option>
+                                <option value="select">Synth</option>
+                                <option value="select">FL Studio</option>
+                                <option value="select">Pro Tools</option>
+                                <option value="select">Ableton Live</option>
+                                <option value="select">Logic Pro</option>
+                                <option value="select">Other (List in Bio!)</option>
                             </FormControl>
                         </FormGroup>
                     </Form>

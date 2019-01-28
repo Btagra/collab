@@ -17,6 +17,9 @@ class Form1 extends React.Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
+        if (!this.state.firstname || !this.state.lastname) {
+            alert("Fill all the fields");
+        }
     };
 
     render() {

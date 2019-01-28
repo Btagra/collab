@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Button, Form, FormGroup, ControlLabel, FormControl, Grid, Alert, HelpBlock } from 'react-bootstrap';
+import { Button, Form, FormGroup, ControlLabel, FormControl, Grid, Alert } from 'react-bootstrap';
 import API from "../utils/API"
 
 function FieldGroup({ id, label, help, ...props }) {
@@ -8,7 +8,6 @@ function FieldGroup({ id, label, help, ...props }) {
         <FormGroup controlId={id}>
             <ControlLabel>{label}</ControlLabel>
             <FormControl {...props} />
-            {help && <HelpBlock>{help}</HelpBlock>}
         </FormGroup>
     );
 }
@@ -17,6 +16,9 @@ class Form1 extends React.Component {
     state = {
         firstname: '',
         lastname: '',
+        bio: '',
+        instruments: [],
+        selectedFile: null,
         q1: '',
         q2: '',
         q3: '',

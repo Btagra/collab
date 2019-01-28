@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Button, Form, FormGroup, ControlLabel, FormControl, Grid, Alert } from 'react-bootstrap';
+import { Button, Form, FormGroup, ControlLabel, FormControl, Grid, Alert, Checkbox } from 'react-bootstrap';
 import API from "../utils/API"
 
 function FieldGroup({ id, label, help, ...props }) {
@@ -109,6 +109,31 @@ class Form1 extends React.Component {
                             <ControlLabel>Bio</ControlLabel>
                             <FormControl componentClass="textarea" placeholder="Write a few sentences about yourself!" />
                         </FormGroup>
+
+                        <ControlLabel>What Instruments/Technologies Do You Use?</ControlLabel>
+
+                        <FormGroup>                           
+                            <Checkbox inline>Guitar (Electric)</Checkbox>
+                            <Checkbox inline>Guitar (Acoustic)</Checkbox>
+                            <br/>
+                            <Checkbox inline>Bass (Electric)</Checkbox>
+                            <Checkbox inline>Bass (Acoustic)</Checkbox>
+                            <br/>
+                            <Checkbox inline>Piano</Checkbox>
+                            <Checkbox inline>Violin</Checkbox>
+                            <br/>
+                            <Checkbox inline>Harmonica</Checkbox>
+                            <Checkbox inline>Synths</Checkbox>
+                            <br/>
+                            <Checkbox inline>FL Studio</Checkbox>
+                            <Checkbox inline>Pro Tools</Checkbox>
+                            <br/>
+                            <Checkbox inline>Ableton Live</Checkbox>
+                            <Checkbox inline>Logic Pro</Checkbox>
+                            <br/>
+                            <Checkbox inline>Other (Make sure to list in bio!)</Checkbox>
+                        </FormGroup>
+
                     </Form>
                     <div>
 

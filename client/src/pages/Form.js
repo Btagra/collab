@@ -38,24 +38,8 @@ class Form1 extends React.Component {
 
     fileChangedHandler = event => {
         this.setState({ selectedFile: event.target.files[0] });
-        console.log(this.state.selectedFile);
         console.log(event.target.files[0]);
     }
-
-    uploadHandler = () => {
-        console.log(this.state.selectedFile);
-
-        const formData = new FormData()
-
-        formData.append(
-            'myFile',
-            this.state.selectedFile,
-            this.state.selectedFile.name
-        )
-
-        console.log(formData)
-    }
-
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -64,6 +48,27 @@ class Form1 extends React.Component {
             [name]: value
         });
     };
+
+    handleCheckChange = event => {
+        // Current array of instruments
+        const instruments = this.state.instruments
+        // Placeholder index value
+        let index;
+
+        // Check if box is checked or unchecked
+        if (event.target.checked) {
+            console.log(event.target.name)
+            instruments.push(event.target.name)
+        }
+        else {
+            index = instruments.indexOf(event.target.name)
+            instruments.splice(index, 1)
+        }
+
+        // Update state with new array of options
+        this.setState({ instruments: instruments})
+        console.log(instruments);
+    }
 
     handleFormSubmit = event => {
         event.preventDefault();
@@ -143,17 +148,15 @@ class Form1 extends React.Component {
                         <FormGroup>                           
                             <Checkbox 
                                 inline  
-                                value={this.state.instruments}
-                                type="instruments"
-                                name="instruments"
+                                name="Guitar (Electric)"
+                                onChange={this.handleCheckChange}
                             >
                                 Guitar (Electric)
                             </Checkbox>
                             <Checkbox 
                                 inline 
-                                value={this.state.instruments}
-                                type="instruments"
-                                name="instruments"
+                                name="Guitar (Acoustic)"
+                                onChange={this.handleCheckChange}
                             >
                                 Guitar (Acoustic)
                             </Checkbox>
@@ -161,17 +164,15 @@ class Form1 extends React.Component {
                             
                             <Checkbox 
                                 inline 
-                                value={this.state.instruments}
-                                type="instruments"
-                                name="instruments"
+                                name="Bass (Electric)"
+                                onChange={this.handleCheckChange}
                             >
                                 Bass (Electric)
                             </Checkbox>
                             <Checkbox 
                                 inline 
-                                value={this.state.instruments}
-                                type="instruments"
-                                name="instruments"
+                                name="Bass (Acoustic)"
+                                onChange={this.handleCheckChange}
                             >
                                 Bass (Acoustic)
                             </Checkbox>
@@ -179,17 +180,15 @@ class Form1 extends React.Component {
 
                             <Checkbox 
                                 inline 
-                                value={this.state.instruments}
-                                type="instruments"
-                                name="instruments"
+                                name="Piano"
+                                onChange={this.handleCheckChange}
                             >
                                 Piano
                             </Checkbox>
                             <Checkbox 
                                 inline 
-                                value={this.state.instruments}
-                                type="instruments"
-                                name="instruments"
+                                name="Violin"
+                                onChange={this.handleCheckChange}
                             >
                                 Violin
                             </Checkbox>
@@ -197,17 +196,15 @@ class Form1 extends React.Component {
                             
                             <Checkbox 
                                 inline 
-                                value={this.state.instruments}
-                                type="instruments"
-                                name="instruments"
+                                name="Harmonica"
+                                onChange={this.handleCheckChange}
                             >
                                 Harmonica
                             </Checkbox>
                             <Checkbox 
                                 inline 
-                                value={this.state.instruments}
-                                type="instruments"
-                                name="instruments"
+                                name="Synths"
+                                onChange={this.handleCheckChange}
                             >
                                 Synths
                             </Checkbox>
@@ -215,17 +212,15 @@ class Form1 extends React.Component {
 
                             <Checkbox 
                                 inline 
-                                value={this.state.instruments}
-                                type="instruments"
-                                name="instruments"
+                                name="FL Studio"
+                                onChange={this.handleCheckChange}
                             >
                                 FL Studio
                             </Checkbox>
                             <Checkbox 
                                 inline 
-                                value={this.state.instruments}
-                                type="instruments"
-                                name="instruments"
+                                name="Pro Tools"
+                                onChange={this.handleCheckChange}
                             >
                                 Pro Tools
                             </Checkbox>
@@ -233,17 +228,15 @@ class Form1 extends React.Component {
 
                             <Checkbox 
                                 inline 
-                                value={this.state.instruments}
-                                type="instruments"
-                                name="instruments"
+                                name="Ableton Live"
+                                onChange={this.handleCheckChange}
                             >
                                 Ableton Live
                             </Checkbox>
                             <Checkbox 
                                 inline 
-                                value={this.state.instruments}
-                                type="instruments"
-                                name="instruments"
+                                name="Logic Pro"
+                                onChange={this.handleCheckChange}
                             >
                                 Logic Pro
                             </Checkbox>
@@ -251,9 +244,8 @@ class Form1 extends React.Component {
                             
                             <Checkbox 
                                 inline 
-                                value={this.state.instruments}
-                                type="instruments"
-                                name="instruments"
+                                name="Other"
+                                onChange={this.handleCheckChange}
                             >
                                 Other (Make sure to list in bio!)
                             </Checkbox>

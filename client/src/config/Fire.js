@@ -11,5 +11,5 @@ const config = { /* COPY THE ACTUAL CONFIG FROM FIREBASE CONSOLE */
     messagingSenderId: "169294315116"
 };
 const fire = firebase.initializeApp(config);
-console.log(process.env.REACT_APP_FIREBASE_API_KEY);
+
 export default fire;

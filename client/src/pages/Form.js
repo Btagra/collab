@@ -36,6 +36,26 @@ class Form1 extends React.Component {
         this.setState({ uid })
     }
 
+    fileChangedHandler = event => {
+        this.setState({ selectedFile: event.target.files[0] });
+        console.log(this.state.selectedFile);
+        console.log(event.target.files[0]);
+    }
+
+    uploadHandler = () => {
+        console.log(this.state.selectedFile);
+
+        const formData = new FormData()
+
+        formData.append(
+            'myFile',
+            this.state.selectedFile,
+            this.state.selectedFile.name
+        )
+
+        console.log(formData)
+    }
+
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -55,7 +75,7 @@ class Form1 extends React.Component {
             !this.state.lastname ||
             !this.state.bio ||
             !this.state.instruments ||
-            !this.state.selectedFile
+            !this.state.selectedFile 
         ) {
             alert("Please fill all fields.");
         }
@@ -78,16 +98,17 @@ class Form1 extends React.Component {
                                 Before you get started searching for collaborators, please tell us a little bit about yourself!
                         </strong>
                         </Alert>
-                        <FormGroup controlId="formInlineName">
+                        <FormGroup controlId="forminline Name">
                             <ControlLabel>First Name</ControlLabel>
                             <FormControl
                                 name="firstname"
                                 type="firstname"
                                 value={this.state.firstname}
                                 placeholder="Bobby"
-                                onChange={this.handleInputChange} />
+                                onChange={this.handleInputChange} 
+                            />
                         </FormGroup>
-                        <FormGroup controlId="formInlineName">
+                        <FormGroup controlId="forminline Name">
                             <ControlLabel>Last Name</ControlLabel>
                             <FormControl
                                 type="lastname"
@@ -100,58 +121,142 @@ class Form1 extends React.Component {
                         
                         <FieldGroup
                             id="formControlsFile"
+                            name="selectedFile"
+                            value={this.state.selectedFile}
                             type="file"
                             label="Profile Picture"
                         />
+
                         <FormGroup controlId="formControlsTextarea">
                             <ControlLabel>Bio</ControlLabel>
-
                             <FormControl 
+                                name="bio"
+                                type="bio"
                                 value={this.state.bio}
                                 componentClass="textarea" 
-                                placeholder="Write a few sentences about yourself!"
+                                placeholder="Write at least a few sentences about yourself!"
                                 onChange={this.handleInputChange}
                             />
                         </FormGroup>
 
                         <ControlLabel>What Instruments/Technologies Do You Use?</ControlLabel>
-
                         <FormGroup>                           
                             <Checkbox 
-                            inline 
-                            value={this.state.instruments}
+                                inline  
+                                value={this.state.instruments}
+                                type="instruments"
+                                name="instruments"
                             >
                                 Guitar (Electric)
                             </Checkbox>
                             <Checkbox 
-                            inline
-                            value={this.state.instruments}
+                                inline 
+                                value={this.state.instruments}
+                                type="instruments"
+                                name="instruments"
                             >
                                 Guitar (Acoustic)
                             </Checkbox>
                             <br/>
                             
                             <Checkbox 
-                            inline
-                            value={this.state.instruments}
+                                inline 
+                                value={this.state.instruments}
+                                type="instruments"
+                                name="instruments"
                             >
                                 Bass (Electric)
                             </Checkbox>
-                            <Checkbox inline>Bass (Acoustic)</Checkbox>
+                            <Checkbox 
+                                inline 
+                                value={this.state.instruments}
+                                type="instruments"
+                                name="instruments"
+                            >
+                                Bass (Acoustic)
+                            </Checkbox>
                             <br/>
-                            <Checkbox inline>Piano</Checkbox>
-                            <Checkbox inline>Violin</Checkbox>
+
+                            <Checkbox 
+                                inline 
+                                value={this.state.instruments}
+                                type="instruments"
+                                name="instruments"
+                            >
+                                Piano
+                            </Checkbox>
+                            <Checkbox 
+                                inline 
+                                value={this.state.instruments}
+                                type="instruments"
+                                name="instruments"
+                            >
+                                Violin
+                            </Checkbox>
                             <br/>
-                            <Checkbox inline>Harmonica</Checkbox>
-                            <Checkbox inline>Synths</Checkbox>
+                            
+                            <Checkbox 
+                                inline 
+                                value={this.state.instruments}
+                                type="instruments"
+                                name="instruments"
+                            >
+                                Harmonica
+                            </Checkbox>
+                            <Checkbox 
+                                inline 
+                                value={this.state.instruments}
+                                type="instruments"
+                                name="instruments"
+                            >
+                                Synths
+                            </Checkbox>
                             <br/>
-                            <Checkbox inline>FL Studio</Checkbox>
-                            <Checkbox inline>Pro Tools</Checkbox>
+
+                            <Checkbox 
+                                inline 
+                                value={this.state.instruments}
+                                type="instruments"
+                                name="instruments"
+                            >
+                                FL Studio
+                            </Checkbox>
+                            <Checkbox 
+                                inline 
+                                value={this.state.instruments}
+                                type="instruments"
+                                name="instruments"
+                            >
+                                Pro Tools
+                            </Checkbox>
                             <br/>
-                            <Checkbox inline>Ableton Live</Checkbox>
-                            <Checkbox inline>Logic Pro</Checkbox>
+
+                            <Checkbox 
+                                inline 
+                                value={this.state.instruments}
+                                type="instruments"
+                                name="instruments"
+                            >
+                                Ableton Live
+                            </Checkbox>
+                            <Checkbox 
+                                inline 
+                                value={this.state.instruments}
+                                type="instruments"
+                                name="instruments"
+                            >
+                                Logic Pro
+                            </Checkbox>
                             <br/>
-                            <Checkbox inline>Other (Make sure to list in bio!)</Checkbox>
+                            
+                            <Checkbox 
+                                inline 
+                                value={this.state.instruments}
+                                type="instruments"
+                                name="instruments"
+                            >
+                                Other (Make sure to list in bio!)
+                            </Checkbox>
                         </FormGroup>
 
                     </Form>
@@ -163,7 +268,6 @@ class Form1 extends React.Component {
                         <h3><strong>Question 1</strong></h3>
                         <h4>You enjoy playing the piano and writing chord prgressions</h4>
                         <select name={'q1'} onChange={this.handleInputChange} className="chosen-select" id="q1">
-                            <option value=""></option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -174,7 +278,6 @@ class Form1 extends React.Component {
                         <h3><strong>Question 2</strong></h3>
                         <h4>You are an avid guitar player</h4>
                         <select name={'q2'} onChange={this.handleInputChange} className="chosen-select" id="q2">
-                            <option value=""></option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -186,7 +289,6 @@ class Form1 extends React.Component {
                         <h3><strong>Question 3</strong></h3>
                         <h4>When it comes to playing the drums you are a natural</h4>
                         <select name={'q3'} onChange={this.handleInputChange} className="chosen-select" id="q3">
-                            <option value=""></option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -198,7 +300,6 @@ class Form1 extends React.Component {
                         <h3><strong>Question 4</strong></h3>
                         <h4>You have a deep love for live instrumentation</h4>
                         <select name={'q4'} onChange={this.handleInputChange} className="chosen-select" id="q4">
-                            <option value=""></option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -210,7 +311,6 @@ class Form1 extends React.Component {
                         <h3><strong>Question 5</strong></h3>
                         <h4>You consider yourself a vocalist</h4>
                         <select name={'q5'} onChange={this.handleInputChange} className="chosen-select" id="q5">
-                            <option value=""></option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -222,7 +322,6 @@ class Form1 extends React.Component {
                         <h3><strong>Question 6</strong></h3>
                         <h4>Producing music and making beats in your passion</h4>
                         <select name={'q6'} onChange={this.handleInputChange} className="chosen-select" id="q6">
-                            <option value=""></option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -234,7 +333,6 @@ class Form1 extends React.Component {
                         <h3><strong>Question 7</strong></h3>
                         <h4>Hip Hop and Rap is your favorite genre</h4>
                         <select name={'q7'} onChange={this.handleInputChange} className="chosen-select" id="q7">
-                            <option value=""></option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -245,7 +343,6 @@ class Form1 extends React.Component {
                         <h3><strong>Question 8</strong></h3>
                         <h4>Rock is your favorite genre</h4>
                         <select name={'q8'} onChange={this.handleInputChange} className="chosen-select" id="q8">
-                            <option value=""></option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -256,7 +353,6 @@ class Form1 extends React.Component {
                         <h3><strong>Question 9</strong></h3>
                         <h4>You enjoy Electronic music and unique sounds</h4>
                         <select name={'q9'} onChange={this.handleInputChange} className="chosen-select" id="q9">
-                            <option value=""></option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -267,7 +363,6 @@ class Form1 extends React.Component {
                         <h3><strong>Question 10</strong></h3>
                         <h4>You enjoy writing songs</h4>
                         <select name={'q10'} onChange={this.handleInputChange} className="chosen-select" id="q10">
-                            <option value=""></option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
                             <option value="3">3</option>

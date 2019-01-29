@@ -48,10 +48,16 @@ class Form1 extends React.Component {
     handleFormSubmit = event => {
         event.preventDefault();
 
-        console.log('form submitted!!!!', this.state)
+        console.log('Form submitted.', this.state)
 
-        if (!this.state.firstname || !this.state.lastname) {
-            alert("Fill all fields");
+        if (
+            !this.state.firstname || 
+            !this.state.lastname ||
+            !this.state.bio ||
+            !this.state.instruments ||
+            !this.state.selectedFile
+        ) {
+            alert("Please fill all fields.");
         }
         else {
             const { history } = this.props;
@@ -88,7 +94,8 @@ class Form1 extends React.Component {
                                 name="lastname"
                                 value={this.state.lastname}
                                 placeholder="Shmurda"
-                                onChange={this.handleInputChange} />
+                                onChange={this.handleInputChange} 
+                            />
                         </FormGroup>
                         
                         <FieldGroup
@@ -98,16 +105,38 @@ class Form1 extends React.Component {
                         />
                         <FormGroup controlId="formControlsTextarea">
                             <ControlLabel>Bio</ControlLabel>
-                            <FormControl componentClass="textarea" placeholder="Write a few sentences about yourself!" />
+
+                            <FormControl 
+                                value={this.state.bio}
+                                componentClass="textarea" 
+                                placeholder="Write a few sentences about yourself!"
+                                onChange={this.handleInputChange}
+                            />
                         </FormGroup>
 
                         <ControlLabel>What Instruments/Technologies Do You Use?</ControlLabel>
 
                         <FormGroup>                           
-                            <Checkbox inline>Guitar (Electric)</Checkbox>
-                            <Checkbox inline>Guitar (Acoustic)</Checkbox>
+                            <Checkbox 
+                            inline 
+                            value={this.state.instruments}
+                            >
+                                Guitar (Electric)
+                            </Checkbox>
+                            <Checkbox 
+                            inline
+                            value={this.state.instruments}
+                            >
+                                Guitar (Acoustic)
+                            </Checkbox>
                             <br/>
-                            <Checkbox inline>Bass (Electric)</Checkbox>
+                            
+                            <Checkbox 
+                            inline
+                            value={this.state.instruments}
+                            >
+                                Bass (Electric)
+                            </Checkbox>
                             <Checkbox inline>Bass (Acoustic)</Checkbox>
                             <br/>
                             <Checkbox inline>Piano</Checkbox>

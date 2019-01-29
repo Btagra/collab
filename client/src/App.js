@@ -15,6 +15,29 @@ function App() {
   return (
     <BrowserRouter>
       <div>
+      <div className="music one">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<div className="music two">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<div className="music three">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
         <Switch>
           <Route exact path="/" component={User} />
           <Route exact path="/home" component={Home} />

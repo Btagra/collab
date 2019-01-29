@@ -11,5 +11,8 @@ const config = { /* COPY THE ACTUAL CONFIG FROM FIREBASE CONSOLE */
     messagingSenderId: "169294315116"
 };
 const fire = firebase.initializeApp(config);
+const database = fire.database().ref().child('messages');
+
+export { database };
 
 export default fire;

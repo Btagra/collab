@@ -1,56 +1,53 @@
 import React, { Component } from 'react';
 import Message from '../Message/index';
-import "./style.css";
-import firebase from 'firebase';
+// import "./style.css";
+import { database } from "../../config/Fire";
+import fire from "../../config/Fire";
+
 export default class Form extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            userName: "",
-            message: '',
-            list: [],
-        };
-        console.log(this.state.list + "This is our list");
+    state = {
+        message: '',
+        list: [],
+    }
 
-        this.messageRef = firebase.database().ref().child('messages');
+    componentDidMount() {
         this.listenMessages();
-        console.log(this.messageRef + "Reference");
 
     }
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.user) {
-            this.setState({ 'userName': nextProps.user.displayName });
-        }
-        console.log(nextProps.user + "Here is our nextProps");
 
-    }
-    handleChange(event) {
+
+
+    handleChange = (event) => {
+
         this.setState({ message: event.target.value });
     }
-    handleSend() {
+    handleSend = () => {
         if (this.state.message) {
             var newItem = {
-                userName: this.state.userName,
+                // uid: this.props.uid,
                 message: this.state.message,
             }
-            console.log(newItem + "this is our new item");
 
-            this.messageRef.push(newItem);
+            fire.push(newItem);
             this.setState({ message: '' });
         }
     }
-    handleKeyPress(event) {
+    handleKeyPress = (event) => {
         if (event.key !== 'Enter') return;
         this.handleSend();
-        console.log(event.key);
 
     }
-    listenMessages() {
-        this.messageRef
+    listenMessages = () => {
+        database
             .limitToLast(10)
-            .on('value', message => {
+            .on('value', response => {
+                const list = []
+                for (let key in response.val()) {
+                    console.log(response.val()[key])
+                    list.push(response.val()[key].message)
+                }
                 this.setState({
-                    list: Object.values(message.val()),
+                    list
                 });
             });
     }
@@ -59,11 +56,8 @@ export default class Form extends Component {
             <div className="form">
                 <div className="form__chatting">
                     {this.state.list.map((item, index) =>
-                        <Message key={index} message={item} />
-
-
+                        <Message key={index} message={item} user={this.props.user} />
                     )}
-
                 </div>
                 <div className="form__row">
                     <input
@@ -71,12 +65,12 @@ export default class Form extends Component {
                         type="text"
                         placeholder=""
                         value={this.state.message}
-                        onChange={this.handleChange.bind(this)}
-                        onKeyPress={this.handleKeyPress.bind(this)}
+                        onChange={this.handleChange}
+                        onKeyPress={this.handleKeyPress}
                     />
                     <button
                         className="button"
-                        onClick={this.handleSend.bind(this)}
+                        onClick={this.handleSend}
                     >
                         send
           </button>

@@ -12,7 +12,7 @@ module.exports = {
             lastName: req.body.lastname,
             bio: req.body.bio,
             instruments: req.body.instruments,
-            avatar: req.body.selectedFile
+            image: req.body.selectedFile.name
         })
             .then(dbProfile => {
                 return db.User.findOneAndUpdate(

@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Button, Form, FormGroup, ControlLabel, FormControl, Grid, Alert, Checkbox } from 'react-bootstrap';
 import API from "../utils/API";
-import {storageService, storageRef} from "../config/Fire"
+import { storageService, storageRef } from "../config/Fire"
 
 function FieldGroup({ id, label, help, ...props }) {
     return (
@@ -81,8 +81,8 @@ class Form1 extends React.Component {
         }
         else {
             // Create a child directory called images, and place the file inside this directory
-            const uploadTask = 
-            storageRef.child(`images/${this.state.selectedFile.name}`).put(this.state.selectedFile);
+            const uploadTask =
+                storageRef.child(`images/${this.state.selectedFile.name}`).put(this.state.selectedFile);
 
             uploadTask.on("state_changed", snapshot => {
                 // Observe state changes 
@@ -110,7 +110,7 @@ class Form1 extends React.Component {
                         <Alert bsStyle="warning">
                             <strong>
                                 Before you get started searching for collaborators, please tell us a little bit about yourself!
-                        </strong>
+                            </strong>
                         </Alert>
                         <FormGroup controlId="forminline Name">
                             <ControlLabel>First Name</ControlLabel>

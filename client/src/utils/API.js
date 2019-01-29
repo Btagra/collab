@@ -13,5 +13,11 @@ export default {
     createProfile: function (profileData) {
         console.log('from API.js ', profileData)
         return axios.post("/api/profiles/compare", profileData);
+        // console.log('from API.js ', profileData)
+        return axios.post("/api/profiles/create", profileData);
+    },
+    getUser: function (uid) {
+        console.log('from API.js ', uid);
+        return axios.get("/api/profiles/" + uid);
     }
 };

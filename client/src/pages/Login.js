@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
+// import Home from "./Home";
 import Navbar from '../components/Navbar';
 import LoginForm from '../components/LoginForm';
 

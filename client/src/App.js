@@ -15,30 +15,6 @@ function App() {
   return (
     <BrowserRouter>
       <div>
-      <div className="music one">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
-
-<div className="music two">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
-
-<div className="music three">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
-
         <Switch>
           <Route exact path="/" component={User} />
           <Route exact path="/home" component={Home} />
@@ -46,9 +22,7 @@ function App() {
           <Route exact path="/form" component={Form} />
           <Route exact path="/chat" component={AppChat} />
           <Route exact path="/messages" component={Messages} />
-          
         </Switch>
-        
       </div>
     </BrowserRouter>
   );

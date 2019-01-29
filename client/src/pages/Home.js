@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import fire from '../config/Fire';
 import { Nav, NavItem, Button, Navbar } from 'react-bootstrap';
+import API from '../utils/API';
 
 class Home extends Component {
     constructor(props) {
@@ -8,8 +9,32 @@ class Home extends Component {
         this.logout = this.logout.bind(this);
     }
 
+    state = {
+        uid: '',
+        profiles: []
+    };
+
     logout() {
         fire.auth().signOut();
+    }
+
+    componentDidMount() {
+        const uid = localStorage.getItem("uid");
+        this.fetchNotes(uid);
+    }
+
+    fetchNotes = (uid) => {
+        API.getUser(uid)
+            .then(res => {
+                console.log(res.data[0].profiles);
+                // const profiles = res.data;
+                // if (profiles !== 0) {
+                //     this.setState({
+                //         profiles
+                //     });
+                // }
+                // console.log("state after profiles came back!", this.state);
+            });
     }
 
     render() {
@@ -29,8 +54,6 @@ class Home extends Component {
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
-           
-        
         );
     }
 }

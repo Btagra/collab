@@ -7,7 +7,7 @@ class User extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: {},
+            user: null,
         }
 
     }
@@ -16,9 +16,13 @@ class User extends Component {
         this.authListener();
     }
 
+    componentWillUnmount() {
+        this.authListener();
+    }
+
     authListener = () => {
         fire.auth().onAuthStateChanged((user) => {
-            // console.log(user.displayName);
+            console.log(user);
 
             if (user) {
                 this.setState({ user });

@@ -66,7 +66,7 @@ class Form1 extends React.Component {
         }
 
         // Update state with new array of options
-        this.setState({ instruments: instruments})
+        this.setState({ instruments: instruments })
         console.log(instruments);
     }
 
@@ -76,11 +76,11 @@ class Form1 extends React.Component {
         console.log('Form submitted.', this.state)
 
         if (
-            !this.state.firstname || 
+            !this.state.firstname ||
             !this.state.lastname ||
             !this.state.bio ||
             !this.state.instruments ||
-            !this.state.selectedFile 
+            !this.state.selectedFile
         ) {
             alert("Please fill all fields.");
         }
@@ -89,7 +89,7 @@ class Form1 extends React.Component {
             const profileData = { ...this.state }
             console.log(profileData);
             API.createProfile(profileData)
-                .then(history.push('/'))
+                .then(() => history.push('/'))
         }
     }
 
@@ -110,7 +110,7 @@ class Form1 extends React.Component {
                                 type="firstname"
                                 value={this.state.firstname}
                                 placeholder="Bobby"
-                                onChange={this.handleInputChange} 
+                                onChange={this.handleInputChange}
                             />
                         </FormGroup>
                         <FormGroup controlId="forminline Name">
@@ -120,10 +120,10 @@ class Form1 extends React.Component {
                                 name="lastname"
                                 value={this.state.lastname}
                                 placeholder="Shmurda"
-                                onChange={this.handleInputChange} 
+                                onChange={this.handleInputChange}
                             />
                         </FormGroup>
-                        
+
                         <FieldGroup
                             id="formControlsFile"
                             type="file"
@@ -134,116 +134,116 @@ class Form1 extends React.Component {
 
                         <FormGroup controlId="formControlsTextarea">
                             <ControlLabel>Bio</ControlLabel>
-                            <FormControl 
+                            <FormControl
                                 name="bio"
                                 type="bio"
                                 value={this.state.bio}
-                                componentClass="textarea" 
+                                componentClass="textarea"
                                 placeholder="Write at least a few sentences about yourself!"
                                 onChange={this.handleInputChange}
                             />
                         </FormGroup>
 
                         <ControlLabel>What Instruments/Technologies Do You Use?</ControlLabel>
-                        <FormGroup>                           
-                            <Checkbox 
-                                inline  
+                        <FormGroup>
+                            <Checkbox
+                                inline
                                 name="Guitar (Electric)"
                                 onChange={this.handleCheckChange}
                             >
                                 Guitar (Electric)
                             </Checkbox>
-                            <Checkbox 
-                                inline 
+                            <Checkbox
+                                inline
                                 name="Guitar (Acoustic)"
                                 onChange={this.handleCheckChange}
                             >
                                 Guitar (Acoustic)
                             </Checkbox>
-                            <br/>
-                            
-                            <Checkbox 
-                                inline 
+                            <br />
+
+                            <Checkbox
+                                inline
                                 name="Bass (Electric)"
                                 onChange={this.handleCheckChange}
                             >
                                 Bass (Electric)
                             </Checkbox>
-                            <Checkbox 
-                                inline 
+                            <Checkbox
+                                inline
                                 name="Bass (Acoustic)"
                                 onChange={this.handleCheckChange}
                             >
                                 Bass (Acoustic)
                             </Checkbox>
-                            <br/>
+                            <br />
 
-                            <Checkbox 
-                                inline 
+                            <Checkbox
+                                inline
                                 name="Piano"
                                 onChange={this.handleCheckChange}
                             >
                                 Piano
                             </Checkbox>
-                            <Checkbox 
-                                inline 
+                            <Checkbox
+                                inline
                                 name="Violin"
                                 onChange={this.handleCheckChange}
                             >
                                 Violin
                             </Checkbox>
-                            <br/>
-                            
-                            <Checkbox 
-                                inline 
+                            <br />
+
+                            <Checkbox
+                                inline
                                 name="Harmonica"
                                 onChange={this.handleCheckChange}
                             >
                                 Harmonica
                             </Checkbox>
-                            <Checkbox 
-                                inline 
+                            <Checkbox
+                                inline
                                 name="Synths"
                                 onChange={this.handleCheckChange}
                             >
                                 Synths
                             </Checkbox>
-                            <br/>
+                            <br />
 
-                            <Checkbox 
-                                inline 
+                            <Checkbox
+                                inline
                                 name="FL Studio"
                                 onChange={this.handleCheckChange}
                             >
                                 FL Studio
                             </Checkbox>
-                            <Checkbox 
-                                inline 
+                            <Checkbox
+                                inline
                                 name="Pro Tools"
                                 onChange={this.handleCheckChange}
                             >
                                 Pro Tools
                             </Checkbox>
-                            <br/>
+                            <br />
 
-                            <Checkbox 
-                                inline 
+                            <Checkbox
+                                inline
                                 name="Ableton Live"
                                 onChange={this.handleCheckChange}
                             >
                                 Ableton Live
                             </Checkbox>
-                            <Checkbox 
-                                inline 
+                            <Checkbox
+                                inline
                                 name="Logic Pro"
                                 onChange={this.handleCheckChange}
                             >
                                 Logic Pro
                             </Checkbox>
-                            <br/>
-                            
-                            <Checkbox 
-                                inline 
+                            <br />
+
+                            <Checkbox
+                                inline
                                 name="Other"
                                 onChange={this.handleCheckChange}
                             >

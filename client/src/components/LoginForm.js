@@ -32,6 +32,8 @@ class LoginForm extends React.Component {
         else {
             if (this.props.type === "Login") {
                 fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
+                    const uid = u.user.uid
+                    localStorage.setItem("uid", uid)
                 }).catch((error) => {
                     console.log(error);
                 });

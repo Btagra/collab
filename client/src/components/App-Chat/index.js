@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 import './style.css';
 import Form from '../Chat-Form/index';
-import firebase from 'firebase';
-import firebaseConfig from '../../config/Fire';
-// firebase.initializeApp(firebaseConfig);
+// import firebase from 'firebase';
+
+import fire from "../../config/Fire";
 
 class AppChat extends Component {
     constructor(props) {
@@ -13,23 +13,23 @@ class AppChat extends Component {
             user: null,
         }
     }
-    // componentDidMount() {
-    //     firebase.auth().onAuthStateChanged(user => {
-    //         this.setState({ user });
-    //     });
-    // }
-    // handleSignIn() {
-    //     const provider = new firebase.auth.GoogleAuthProvider();
-    //     firebase.auth().signInWithPopup(provider);
-    // }
-    // handleLogOut() {
-    //     firebase.auth().signOut();
-
+    componentDidMount() {
+        fire.auth().onAuthStateChanged(user => {
+            this.setState({ user });
+        });
+    }
+    handleSignIn() {
+        const provider = new fire.auth.GoogleAuthProvider();
+        fire.auth().signInWithPopup(provider);
+    }
+    handleLogOut() {
+        fire.auth().signOut();
+    }
     render() {
         return (
             <div className="app-chat">
 
-                {/* {!this.state.user ? (
+                {!this.state.user ? (
                     <button
                         className="chat__button"
                         onClick={this.handleSignIn.bind(this)}
@@ -43,7 +43,7 @@ class AppChat extends Component {
                         >
                             Logout
             </button>
-                    )} */}
+                    )}
 
                 <div className="app__list">
                     <Form user={this.state.user} />
@@ -52,4 +52,5 @@ class AppChat extends Component {
         );
     }
 }
+
 export default AppChat;

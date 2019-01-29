@@ -45,9 +45,7 @@ function App() {
           <Route exact path="/form" component={Form} />
           <Route exact path="/chat" component={AppChat} />
           <Route exact path="/messages" component={Messages} />
-          
         </Switch>
-        
       </div>
     </BrowserRouter>
   );

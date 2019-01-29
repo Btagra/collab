@@ -39,7 +39,7 @@ class Form1 extends React.Component {
 
     handleInputChange = event => {
         const { name, value } = event.target;
-        console.log('this is our name and this is our value !!', name, value)
+        console.log(`${name}: ${value}`)
         this.setState({
             [name]: value
         });
@@ -90,20 +90,11 @@ class Form1 extends React.Component {
                                 placeholder="Shmurda"
                                 onChange={this.handleInputChange} />
                         </FormGroup>
-                        {/* <FormGroup controlId="formInlineName">
-                            <ControlLabel>Email</ControlLabel>
-                            <FormControl
-                                type=""
-                                name="email"
-                                value={this.state.email}
-                                placeholder="headhoncho@tunes.com"
-                                onChange={this.handleInputChange} />
-                        </FormGroup> */}
+                        
                         <FieldGroup
                             id="formControlsFile"
                             type="file"
                             label="Profile Picture"
-                            help="Upload a profile picture."
                         />
                         <FormGroup controlId="formControlsTextarea">
                             <ControlLabel>Bio</ControlLabel>

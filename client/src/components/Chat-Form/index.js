@@ -1,23 +1,26 @@
 import React, { Component } from 'react';
 import Message from '../Message/index';
 import "./style.css";
-import firebase from 'firebase';
+// import fire from 'fire';
+import fire from "../../config/Fire";
 export default class Form extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            userName: "",
+            userName: "Zhamal",
             message: '',
             list: [],
         };
         console.log(this.state.list + "This is our list");
 
-        this.messageRef = firebase.database().ref().child('messages');
+        this.messageRef = fire.database().ref().child('messages');
         this.listenMessages();
         console.log(this.messageRef + "Reference");
 
     }
     componentWillReceiveProps(nextProps) {
+        console.log(nextProps + "what is next props means");
+
         if (nextProps.user) {
             this.setState({ 'userName': nextProps.user.displayName });
         }

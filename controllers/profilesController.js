@@ -9,7 +9,10 @@ module.exports = {
     newProfile: (req, res) => {
         db.Profile.create({
             firstName: req.body.firstname,
-            lastName: req.body.lastname
+            lastName: req.body.lastname,
+            bio: req.body.bio,
+            instruments: req.body.instruments,
+            avatar: req.body.selectedFile
         })
             .then(dbProfile => {
                 return db.User.findOneAndUpdate(

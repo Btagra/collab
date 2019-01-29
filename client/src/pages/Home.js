@@ -29,6 +29,8 @@ class Home extends Component {
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
+           
+        
         );
     }
 }

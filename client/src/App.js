@@ -38,7 +38,6 @@ function App() {
     <span></span>
     <span></span>
 </div>
-
         <Switch>
           <Route exact path="/" component={User} />
           <Route exact path="/home" component={Home} />

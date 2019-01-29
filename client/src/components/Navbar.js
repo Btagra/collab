@@ -4,7 +4,7 @@ import { Nav, Button, Navbar, NavItem } from 'react-bootstrap';
 const OurNavbar = (props) => {
     return (
         <Navbar inverse collapseOnSelect>
-            <Navbar.Header>
+            <Navbar.Header className="navbarmain">
                 <Navbar.Brand>
                     <h1>Collab</h1>
                 </Navbar.Brand>

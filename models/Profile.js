@@ -9,7 +9,16 @@ const ProfileSchema = new Schema({
     bio: String,
     instruments: [String],
     genres: [String],
-    // Show how long someone has been a user, if necessary
+    q1: Number,
+    q2: Number,
+    q3: Number,
+    q4: Number,
+    q5: Number,
+    q6: Number,
+    q7: Number,
+    q8: Number,
+    q9: Number,
+    q10: Number,
     date: { type: Date, default: Date.now }
 });
 

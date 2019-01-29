@@ -121,10 +121,10 @@ class Form1 extends React.Component {
                         
                         <FieldGroup
                             id="formControlsFile"
-                            name="selectedFile"
-                            value={this.state.selectedFile}
                             type="file"
                             label="Profile Picture"
+                            accept="image/jpeg, image/png"
+                            onChange={this.fileChangedHandler}
                         />
 
                         <FormGroup controlId="formControlsTextarea">

@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 
 
 // Configure body parser for AJAX requests
@@ -14,8 +14,11 @@ if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
 
+
+
 // Add routes, both API and view
 app.use(routes);
+
 
 // If deployed on Heroku, use the remote database, otherwise use the local database
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/collab";

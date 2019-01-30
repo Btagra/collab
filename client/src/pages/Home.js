@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import fire from '../config/Fire';
-import { Nav, NavItem, Button, Navbar, Grid, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Nav, NavItem, Button, Navbar, Media, Grid, Row, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
 import API from '../utils/API';
 import './Home.css';
 
@@ -58,14 +58,35 @@ class Home extends Component {
                 </Navbar>
                 {this.state.profiles && (
                     <Grid>
-                        <h1>Bio: </h1>{this.state.profiles.bio}
-                        <h2>Instruments:</h2>
-                        <ListGroup>
-                            {this.state.profiles.instruments.map((instrument, i) => <li key={i}>{instrument}</li>)}
-                        </ListGroup>
+                        <Row>
+                            <Media>
+                                <Col xs={6} md={4}>
+                                    <img width={300}
+                                        height={300}
+                                        className="mr-3"
+                                        src="https://images.unsplash.com/photo-1535498730771-e735b998cd64?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
+                                        alt="Generic placeholder" />
+                                </Col>
+                                <Col xs={6} md={8}>
+                                    <Media.Body>
+                                        <h1>Bio: </h1>{this.state.profiles.bio}
+                                        <h2>Instruments:</h2>
+                                        <ListGroup>
+                                            {this.state.profiles.instruments.map((instrument, i) => <li key={i}>{instrument}</li>)}
+                                        </ListGroup>
+                                        <h2>Genres:</h2>
+                                        <ListGroup>
+                                            {this.state.profiles.genres.map((genre, i) => <li key={i}>{genre}</li>)}
+                                        </ListGroup>
+                                        <h2>Portfolios:</h2>
+                                        <ListGroup>
+                                            {this.state.profiles.portfolios.map((portfolio, i) => <li key={i}>{portfolio}</li>)}
+                                        </ListGroup>
+                                    </Media.Body>
+                                </Col>
+                            </Media>
+                        </Row>
                     </Grid>)}
-
-                    
             </>
         );
     }

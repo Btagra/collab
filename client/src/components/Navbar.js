@@ -6,7 +6,7 @@ const OurNavbar = (props) => {
         <Navbar inverse collapseOnSelect>
             <Navbar.Header className="navbarmain">
                 <Navbar.Brand>
-                    <h1>Collab</h1>
+                    <h1></h1>
                 </Navbar.Brand>
                 <Navbar.Toggle />
             </Navbar.Header>

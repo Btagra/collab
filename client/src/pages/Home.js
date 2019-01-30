@@ -62,10 +62,10 @@ class Home extends Component {
                             <Media>
                                 <Col xs={6} md={4}>
                                     <img width={300}
-                                        height={300}
+                                        height={"auto"}
                                         className="mr-3"
-                                        src="https://images.unsplash.com/photo-1535498730771-e735b998cd64?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
-                                        alt="Generic placeholder" />
+                                        src={this.state.profiles.image}
+                                        alt="Profile Picture" />
                                 </Col>
                                 <Col xs={6} md={8}>
                                     <Media.Body>

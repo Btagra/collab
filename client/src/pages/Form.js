@@ -91,9 +91,9 @@ class Form1 extends React.Component {
             alert("Please fill out all required fields.");
         }
         else {
-            // Create a child directory called images, and place the file inside this directory
-            const uploadTask =
-                storageRef.child(`images/${this.state.selectedFile.name}`).put(this.state.selectedFile);
+           // Create a child directory called images, and place the file inside this directory
+           const uploadTask =
+           storageRef.child(`images/${this.state.selectedFile.name}`).put(this.state.selectedFile);
 
             uploadTask.on("state_changed", snapshot => {
                 // Observe state changes 
@@ -103,13 +103,19 @@ class Form1 extends React.Component {
             }, () => {
                 // Do something once upload completes
                 console.log("Image uploaded!");
-            })
+                storageService.ref("images").child(this.state.selectedFile.name)
+                .getDownloadURL().then(url => {
+                    console.log(url);
+                    this.setState({image: url})
+                    console.log(this.state.image)
 
-            const { history } = this.props;
-            const profileData = { ...this.state }
-            console.log(profileData);
-            API.createProfile(profileData)
-                .then(() => history.push('/'))
+                    const { history } = this.props;
+                    const profileData = { ...this.state }
+                    console.log(profileData);
+                    API.createProfile(profileData)
+                        .then(() => history.push('/'))
+                })
+            });
         }
     }
 

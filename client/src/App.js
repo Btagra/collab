@@ -4,8 +4,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import User from "./pages/User";
 import Form from "./pages/Form";
-import AppChat from "./components/App-Chat/index";
-import Messages from "./components/All-Messages/index"
+import App1 from "./components/chat/Chat-App/index"
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -45,8 +44,8 @@ function App() {
           <Route exact path="/home" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/form" component={Form} />
-          <Route exact path="/chat" component={AppChat} />
-          <Route exact path="/messages" component={Messages} />
+          <Route exact path="/chat" component={App1} />
+
         </Switch>
 
       </div>

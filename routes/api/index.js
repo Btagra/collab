@@ -5,7 +5,7 @@ const profileRoutes = require("./profiles");
 const messageRoutes = require("./message");
 router.use("/user", userRoutes);
 router.use("/profiles", profileRoutes);
-router.use("/messsages", messageRoutes);
+router.use("/messages", messageRoutes);
 // For anything else, render the html page
 router.use(function (req, res) {
     res.sendFile(path.join(__dirname, "../../client/build/index.html"));

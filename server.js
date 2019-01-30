@@ -2,12 +2,19 @@ const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
+const cors = require("cors");
+const bodyParser = require("body-parser");
 
 const PORT = process.env.PORT || 3001;
 
 
 // Configure body parser for AJAX requests
+app.use(cors());
+
+
 app.use(express.urlencoded({ extended: true }));
+
+app.use(bodyParser.json());
 app.use(express.json());
 // Serve up static assets
 if (process.env.NODE_ENV === "production") {

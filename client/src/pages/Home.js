@@ -22,13 +22,15 @@ class Home extends Component {
     componentDidMount() {
         const uid = localStorage.getItem("uid");
         this.fetchNotes(uid);
+        this.fetchMatch(uid)
     }
 
     fetchNotes = (uid) => {
         API.getUser(uid)
             .then(res => {
-                console.log(res.data[0].profiles[0]);
-                const profiles = res.data[0].profiles[0];
+                //console.log('this is my best match', res)
+                //console.log(res.data[0].profiles[0]);
+               const profiles = res.data[0].profiles[0];
                 if (profiles !== 0) {
                     this.setState({
                         profiles
@@ -38,7 +40,22 @@ class Home extends Component {
             });
     }
 
+    fetchMatch = (uid) => {
+        
+        API.getMatch(uid)
+            .then(res => {
+                console.log('this is my best match', res.data)
+                console.log("state after profiles came back!", this.state);
+            });
+ 
+    } 
+    compare = () => {
+        const { history } = this.props;
+        history.push('/compare')
+    }
+
     render() {
+        console.log('these are our props', this.props)
         return (
             <>
                 <Navbar inverse collapseOnSelect>
@@ -86,6 +103,7 @@ class Home extends Component {
                                 </Col>
                             </Media>
                         </Row>
+                        <button onClick={this.compare}>Compare page!!!!</button>
                     </Grid>)}
             </>
         );

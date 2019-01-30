@@ -12,7 +12,7 @@ export default {
     },
     createProfile: function (profileData) {
         console.log('from API.js ', profileData)
-        return axios.post("/api/profiles/compare", profileData);
+        // return axios.post("/api/profiles/compare", profileData);
         // console.log('from API.js ', profileData)
         return axios.post("/api/profiles/create", profileData);
     },

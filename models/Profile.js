@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const ProfileSchema = new Schema({
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
-    image: { data: Buffer, contentType: String },
+    image: String,
     portfolios: [String],
     bio: String,
     instruments: [String],

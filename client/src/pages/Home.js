@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import fire from '../config/Fire';
 import { Nav, NavItem, Button, Navbar, Grid, ListGroup, ListGroupItem } from 'react-bootstrap';
 import API from '../utils/API';
-import './Home.css';
 
 class Home extends Component {
     constructor(props) {
@@ -64,8 +63,6 @@ class Home extends Component {
                             {this.state.profiles.instruments.map((instrument, i) => <li key={i}>{instrument}</li>)}
                         </ListGroup>
                     </Grid>)}
-
-                    
             </>
         );
     }

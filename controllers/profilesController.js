@@ -3,7 +3,10 @@ module.exports = {
     findProfiles: (req, res) => {
         db.User.find({ uid: req.params.uid })
             .populate("profiles")
-            .then(result => res.json(result))
+            .then(result => {
+                console.log("profile bio", result[0].profiles);
+                
+                res.json(result)})
             .catch(err => res.status(422).json(err));
     },
     newProfile: (req, res) => {

@@ -15,5 +15,5 @@ const fire = firebase.initializeApp(config);
 export default fire
 
 // Handles image upload to firebase
-const storageService = firebase.storage();
+export const storageService = firebase.storage();
 export const storageRef = storageService.ref();

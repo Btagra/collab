@@ -20,6 +20,7 @@ class Form1 extends React.Component {
         bio: '',
         instruments: [],
         selectedFile: null,
+        image: '',
         q1: '',
         q2: '',
         q3: '',

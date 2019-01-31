@@ -37,6 +37,7 @@ app.use(function (req, res, next) {
 app.use(routes);
 
 // If deployed on Heroku, use the remote database, otherwise use the local database
+//var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/collab";
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/collab";
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });

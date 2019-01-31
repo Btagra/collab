@@ -7,7 +7,7 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     newProfile: (req, res) => {
-        console.log('We are bout tosave thi guy!!!', req.body)
+        console.log('We are about to save this user', req.body)
         db.Profile.create({
             firstName: req.body.firstname,
             lastName: req.body.lastname,
@@ -36,20 +36,21 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     compare: (req, res) => {
-        console.log(' WE HIT THE ROUTE!', req.params.uid)
+        console.log(' WE HIT THE ROUTE', req.params.uid)
         // console.log('new dude coming in!!!', req.body);
 
         db.User.find({ uid: req.params.uid })
             .populate("profiles")
             .then(result => {
-                console.log("new dude needs match", result[0].profiles[0]);
+                console.log("NEW USER NEEDS MATCH", result[0].profiles[0]);
 
                 db.Profile.find({}).then(function (data) {
                     //console.log('ALL OUR OLD DUDES!!!', data);
                     var bestMatch = {
                         name: "",
-                        photo: "",
-                        friendDifference: Infinity
+                        lastName: "",
+                        id: ''
+                        
                     };
 
                     var newDudeTotal = 0
@@ -64,7 +65,7 @@ module.exports = {
                     newDudeTotal += parseInt(result[0].profiles[0].q9)
                     newDudeTotal += parseInt(result[0].profiles[0].q10)
 
-                    console.log('new dudeee total!!!', newDudeTotal);
+                    console.log('NEW USER TOTAL!', newDudeTotal);
 
                     var smallestDifference = 100000
                     for (var i = 0; i < data.length; i++) {
@@ -79,19 +80,27 @@ module.exports = {
                         oldDudeTotal += data[i].q8
                         oldDudeTotal += data[i].q9
                         oldDudeTotal += data[i].q10
-                        console.log('old dude total!!!', data[i].firstName, oldDudeTotal);
+                        console.log('OLD USER TOTAL', data[i].firstName, oldDudeTotal);
                         if ((newDudeTotal - oldDudeTotal) < smallestDifference) {
-                            smallestDifference = Math.abs(newDudeTotal - oldDudeTotal);
-                            bestMatch.name = data[i].firstName
+                            console.log('Logged In Id', result[0].profiles[0]._id)
+                            console.log('compare user id', data[i]._id)
+                            if (data[i].firstName !== result[0].profiles[0].firstName) {
+                                console.log('inside the if! not the same!')
+                                smallestDifference = Math.abs(newDudeTotal - oldDudeTotal);
+                                bestMatch.name = data[i].firstName
+                                bestMatch.lastName = data[i].lastName
+                                bestMatch.id = data[i]._id
+                            }
+                            
                         }
                     }
-                    console.log('thisi s our best match!!!', bestMatch);
+                    console.log('this is our best match!', bestMatch);
                     res.json(bestMatch)
                 })
                 //    res.json(result)
             })
             .catch(err => {
-                console.log('we hit eorrr!!!!!!!!!!!!!', err)
+                console.log('we hit errr!', err)
                 res.status(422).json(err)
             });
     }

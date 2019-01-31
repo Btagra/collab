@@ -12,7 +12,10 @@ class Home extends Component {
 
     state = {
         uid: '',
-        profiles: null
+        profiles: null,
+        bmFirstName: '',
+        bmLastName: '',
+        bmid: ''
     };
 
     logout() {
@@ -22,6 +25,7 @@ class Home extends Component {
     componentDidMount() {
         const uid = localStorage.getItem("uid");
         this.fetchNotes(uid);
+        this.fetchMatch(uid)
     }
 
     fetchNotes = (uid) => {
@@ -34,7 +38,7 @@ class Home extends Component {
                         profiles
                     });
                 }
-                console.log("state after profiles came back!", this.state);
+                //console.log("state after profiles came back!", this.state);
             });
     }
 
@@ -42,7 +46,8 @@ class Home extends Component {
         API.getMatch(uid)
             .then(res => {
                 console.log('this is my best match', res.data)
-                console.log("state after profiles came back!", this.state);
+                this.setState({bmFirstName: res.data.name, bmLastName: res.data.lastName, bmid: res.data.id})
+            
             });
     }
 
@@ -52,6 +57,18 @@ class Home extends Component {
     }
 
     render() {
+        let bestMatch = ''
+
+        if(this.state.bmFirstName.length > 0) {
+            bestMatch = (
+                <div>
+                    <hi> This is our best match!</hi>
+                    <hi> FirstName: {this.state.bmFirstName}</hi>
+                    <hi> Last Name: {this.state.bmLastName}</hi>
+                    <hi> id: {this.state.bmid}</hi>
+                </div>
+            )
+        }
         return (
             <>
                 <Navbar inverse collapseOnSelect>
@@ -102,6 +119,7 @@ class Home extends Component {
                                 </Col>
                             </Media>
                         </Row>
+                        {bestMatch}
                     </Grid>)}
             </>
         );

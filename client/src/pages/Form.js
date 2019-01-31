@@ -19,6 +19,8 @@ class Form1 extends React.Component {
         lastname: '',
         bio: '',
         instruments: [],
+        genres: [],
+        portfolios: [],
         selectedFile: null,
         image: '',
         q1: 1,

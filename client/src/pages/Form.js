@@ -5,6 +5,7 @@ import {
 } from 'react-bootstrap';
 import API from "../utils/API";
 import { storageService, storageRef } from "../config/Fire"
+import isURL from "validator/lib/isURL"
 
 function FieldGroup({ id, label, help, ...props }) {
     return (
@@ -158,6 +159,18 @@ class Form1 extends React.Component {
                                     />
                                 </FormGroup>
 
+                                <FormGroup controlId="forminline portfolio">
+                                    <ControlLabel>Portfolio/Social Media</ControlLabel>
+                                    <FormControl
+                                        name="portfolios"
+                                        type="portfolios"
+                                        value={this.state.portfolios}
+                                        placeholder="https://soundcloud.com/goodmusic"
+                                        onChange={this.handleInputChange}
+                                    />
+                                        <Button className="mt-3">Add Link</Button>
+                                </FormGroup>
+
                                 <FieldGroup
                                     id="formControlsFile"
                                     type="file"
@@ -288,7 +301,7 @@ class Form1 extends React.Component {
                                     </Checkbox>
                                 </FormGroup>
                             </Col>
-                            
+
                             <Col className="col-md-4">
                                 <ControlLabel>What Genres of Music Do You Enjoy?</ControlLabel>
                                 <FormGroup>

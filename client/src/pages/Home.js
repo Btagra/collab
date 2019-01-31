@@ -77,7 +77,7 @@ class Home extends Component {
         if (this.state.bmFirstName.length > 0) {
             bestMatch = (
                 <div>
-                    <img src={this.state.bmFirstName} alt="no image" />
+                    <img src={this.state.bmimage} alt="no image" />
                     <h1> This is our best match!</h1>
                     <h1> FirstName: {this.state.bmFirstName}</h1>
                     <h1> Last Name: {this.state.bmLastName}</h1>

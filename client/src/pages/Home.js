@@ -77,9 +77,9 @@ class Home extends Component {
         if (this.state.bmFirstName.length > 0) {
             bestMatch = (
                 <div>
-                    <img width={200} height={"auto"} src={this.state.bmimage} alt="no image" />
                     <h3> This is our best match!</h3>
                     <h3> FullName: {this.state.bmFirstName} {this.state.bmLastName}</h3>
+                    <img width={200} height={"auto"} src={this.state.bmimage} alt="no image" />
                     <h3> Bio: {this.state.bmbio}</h3>
                     <h3> Portfolio: {this.state.bmportfolios}</h3>
                 </div>
@@ -100,9 +100,9 @@ class Home extends Component {
                                 <Button onClick={this.compare}>Compare page!!!!</Button>
                             </NavItem>
                             <NavItem >
-                                <Icon/>
+                                <Icon />
                             </NavItem>
-                         
+
                             <NavItem eventKey={1}>
                                 <Button onClick={this.logout}>Logout</Button>
                             </NavItem>

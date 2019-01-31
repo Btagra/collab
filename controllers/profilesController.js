@@ -16,6 +16,7 @@ module.exports = {
             lastName: req.body.lastname,
             bio: req.body.bio,
             instruments: req.body.instruments,
+            image: req.body.image,
             q1: parseInt(req.body.q1),
             q2: parseInt(req.body.q2),
             q3: parseInt(req.body.q3),
@@ -26,7 +27,6 @@ module.exports = {
             q8: parseInt(req.body.q8),
             q9: parseInt(req.body.q9),
             q10: parseInt(req.body.q10),
-            image: req.body.selectedFile.name
         })
             .then(dbProfile => {
                 return db.User.findOneAndUpdate(

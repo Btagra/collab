@@ -8,6 +8,7 @@ import AppChat from "./components/App-Chat/index";
 import Messages from "./components/All-Messages/index"
 import Compare from './pages/compare.js';
 
+
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -49,6 +50,7 @@ function App() {
           <Route exact path="/compare" component={Compare} />
           <Route exact path="/chat" component={AppChat} />
           <Route exact path="/messages" component={Messages} />
+
         </Switch>
 
       </div>

@@ -5,7 +5,7 @@ const ProfileSchema = new Schema({
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
     image: String,
-    portfolios: [String],
+    portfolios: String,
     bio: String,
     instruments: [String],
     genres: [String],

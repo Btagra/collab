@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import fire from '../config/Fire';
-import { Nav, NavItem, Button, Navbar, Media, Grid, Row, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Nav, NavItem, Button, Navbar, Media, Grid, Row, Col, ListGroup, ListGroupItem, Modal } from 'react-bootstrap';
 import API from '../utils/API';
 import './Home.css';
 
@@ -13,9 +13,12 @@ class Home extends Component {
     state = {
         uid: '',
         profiles: null,
+        show: false,
         bmFirstName: '',
         bmLastName: '',
-        bmid: ''
+        bmbio: '',
+        bmimage: ''
+
     };
 
     logout() {
@@ -25,7 +28,11 @@ class Home extends Component {
     componentDidMount() {
         const uid = localStorage.getItem("uid");
         this.fetchNotes(uid);
-        this.fetchMatch(uid)
+        this.fetchMatch(uid);
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+
     }
 
     fetchNotes = (uid) => {
@@ -38,7 +45,6 @@ class Home extends Component {
                         profiles
                     });
                 }
-                //console.log("state after profiles came back!", this.state);
             });
     }
 
@@ -46,14 +52,23 @@ class Home extends Component {
         API.getMatch(uid)
             .then(res => {
                 console.log('this is my best match', res.data)
-                this.setState({ bmFirstName: res.data.name, bmLastName: res.data.lastName, bmid: res.data.id })
+                this.setState({ bmFirstName: res.data.name, bmLastName: res.data.lastName, bmbio: res.data.bio, bmimage: res.data.image })
 
             });
     }
 
     compare = () => {
-        const { history } = this.props;
-        history.push('/compare')
+        const uid = localStorage.getItem("uid");
+        this.handleShow();
+        this.fetchMatch(uid);
+    }
+
+    handleClose = () => {
+        this.setState({ show: false });
+    }
+
+    handleShow = () => {
+        this.setState({ show: true });
     }
 
     render() {
@@ -62,10 +77,11 @@ class Home extends Component {
         if (this.state.bmFirstName.length > 0) {
             bestMatch = (
                 <div>
+                    <img src={this.state.bmimage} alt="no image" />
                     <h1> This is our best match!</h1>
                     <h1> FirstName: {this.state.bmFirstName}</h1>
                     <h1> Last Name: {this.state.bmLastName}</h1>
-                    <h1> id: {this.state.bmid}</h1>
+                    <h1> Bio: {this.state.bmbio}</h1>
                 </div>
             )
         }
@@ -119,8 +135,25 @@ class Home extends Component {
                                 </Col>
                             </Media>
                         </Row>
-                        {bestMatch}
                     </Grid>)}
+                <Modal show={this.state.show} onHide={this.handleClose}>
+
+                    <Modal.Header>
+                        <Row className="show-grid">
+                            <Col xs={9} md={8}>
+                                <Modal.Title>Collab</Modal.Title>
+                            </Col>
+                            <Col xsHidden md={2}></Col>
+                            <Col xs={2} md={2}>
+                                <Button onClick={this.handleClose}>Close</Button>
+                            </Col>
+                        </Row>
+                    </Modal.Header>
+
+                    <Modal.Body>
+                        {bestMatch}
+                    </Modal.Body>
+                </Modal>
             </>
         );
     }

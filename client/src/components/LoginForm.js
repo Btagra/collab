@@ -108,7 +108,7 @@ class LoginForm extends React.Component {
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <Button type="submit" onClick={this.handleSubmit} bsStyle="primary">{this.props.type}</Button>
+                    <Button onClick={this.handleSubmit} bsStyle="primary">{this.props.type}</Button>
                 </Modal.Footer>
             </Modal>
         )

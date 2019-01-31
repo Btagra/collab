@@ -3,7 +3,7 @@ import fire from '../config/Fire';
 import { Nav, NavItem, Button, Navbar, Media, Grid, Row, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
 import API from '../utils/API';
 import './Home.css';
-
+import Icon from "../components/chat/Message-Icon/index";
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -66,6 +66,10 @@ class Home extends Component {
                             <NavItem eventKey={1}>
                                 <Button onClick={this.compare}>Compare page!!!!</Button>
                             </NavItem>
+                            <NavItem >
+                                <Icon/>
+                            </NavItem>
+                         
                             <NavItem eventKey={1}>
                                 <Button onClick={this.logout}>Logout</Button>
                             </NavItem>

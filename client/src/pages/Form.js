@@ -5,7 +5,7 @@ import {
 } from 'react-bootstrap';
 import API from "../utils/API";
 import { storageService, storageRef } from "../config/Fire"
-import isURL from "validator/lib/isURL"
+import validator from "validator"
 import './Form.css';
 
 function FieldGroup({ id, label, help, ...props }) {
@@ -24,7 +24,7 @@ class Form1 extends React.Component {
         bio: '',
         instruments: [],
         genres: [],
-        portfolios: [],
+        portfolios: '',
         selectedFile: null,
         image: '',
         q1: 1,
@@ -141,8 +141,13 @@ class Form1 extends React.Component {
                     const { history } = this.props;
                     const profileData = { ...this.state }
                     console.log(profileData);
-                    API.createProfile(profileData)
+                    if (validator.isURL(this.state.portfolios) === false) {
+                        alert("Please include a valid URL for your portfolio!")
+                    }
+                    else {
+                        API.createProfile(profileData)
                         .then(() => history.push('/'))
+                    }
                 })
             });
         }
@@ -322,7 +327,7 @@ class Form1 extends React.Component {
                                         name="Other"
                                         onChange={this.handleCheckChange}
                                     >
-                                        Other (Make sure to list in bio!)
+                                        Other (Make sure to list it in your bio!)
                                     </Checkbox>
                                 </FormGroup>
                             </Col>
@@ -431,7 +436,7 @@ class Form1 extends React.Component {
                                         name="Other"
                                         onChange={this.handleGenreChange}
                                     >
-                                        Other/Sub-Genre (Make sure to list in bio!)
+                                        Other/Sub-Genre (Make sure to list it in your bio!)
                                     </Checkbox>
                                 </FormGroup>
                             </Col>

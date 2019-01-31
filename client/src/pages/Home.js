@@ -111,9 +111,9 @@ class Home extends Component {
                                         <ListGroup>
                                             {this.state.profiles.genres.map((genre, i) => <li key={i}>{genre}</li>)}
                                         </ListGroup>
-                                        <h2>Portfolios:</h2>
+                                        <h2>Portfolio:</h2>
                                         <ListGroup>
-                                            {this.state.profiles.portfolios.map((portfolio, i) => <li key={i}>{portfolio}</li>)}
+                                            <a href={this.state.profiles.portfolios}>{this.state.profiles.portfolios}</a>
                                         </ListGroup>
                                     </Media.Body>
                                 </Col>

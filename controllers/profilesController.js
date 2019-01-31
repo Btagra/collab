@@ -49,8 +49,10 @@ module.exports = {
                     var bestMatch = {
                         name: "",
                         lastName: "",
-                        id: ''
-                        
+                        id: '',
+                        image: "",
+                        bio: ""
+
                     };
 
                     var newDudeTotal = 0
@@ -90,8 +92,10 @@ module.exports = {
                                 bestMatch.name = data[i].firstName
                                 bestMatch.lastName = data[i].lastName
                                 bestMatch.id = data[i]._id
+                                bestMatch.image = data[i].image
+                                bestMatch.bio = data[i].bio
                             }
-                            
+
                         }
                     }
                     console.log('this is our best match!', bestMatch);

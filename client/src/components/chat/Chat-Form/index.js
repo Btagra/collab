@@ -46,8 +46,8 @@ class Form extends Component {
     createList = (chat) => {
         return (
             <div key={chat._id} className="chat">
-                <h3 className="h3msg">{chat.message}</h3>
-                <h2 className="h2sig">-{chat.name}</h2>
+                <h3 className="chat.message">{chat.message}</h3>
+                <h2 className="chat.name">-{chat.name}</h2>
             </div>
         )
     }

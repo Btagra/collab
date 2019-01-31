@@ -1,0 +1,45 @@
+h3{
+    border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  float: initial;
+    
+}
+
+.h2{
+    border-color: #ccc;
+    float: inherit;
+    background-color: #ddd;
+}
+ .chatForm {
+float: right;
+margin-left: 50px;
+width: 300px;
+}
+label {
+    
+    float: right;
+    top: 15px;;
+    letter-spacing: 3px;
+    font-size: 30px;
+    color: rgba(4, 23, 37, 0.8);
+    -webkit-transform-origin: left;
+        -ms-transform-origin: left;
+            transform-origin: left;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    font-family: cursive;
+}
+
+.chat {
+margin: 8px;
+}
+.chatting {
+    /* overflow: scroll;
+    width: 580px;
+    height: 380px; */
+/* float: right; */
+}

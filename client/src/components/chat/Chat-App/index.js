@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-
-import Message from "../Chat-Form/index"
+import "./style.css";
+import Message from "../Message/index";
 
 class App1 extends Component {
     render() {
         return (
-            <div className="bodyWrapper2">
-                <div className="bodyWrapper">
+            <div className="constainer1">
+                <div className="container">
                     <Message />
 
                 </div>

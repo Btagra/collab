@@ -1,10 +1,12 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import { Button } from "react-bootstrap";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import User from "./pages/User";
 import Form from "./pages/Form";
-import App1 from "./components/chat/Chat-App/index"
+import App1 from "./components/chat/Chat-App/index";
+// import Icon from "./components/chat/Message-Icon/index";
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -46,10 +48,11 @@ function App() {
           <Route exact path="/form" component={Form} />
           <Route exact path="/chat" component={App1} />
 
+
         </Switch>
 
       </div>
-    </BrowserRouter>
+    </BrowserRouter >
   );
 }
 

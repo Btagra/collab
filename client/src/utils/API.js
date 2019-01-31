@@ -20,4 +20,10 @@ export default {
         console.log('from API.js ', uid);
         return axios.get("/api/profiles/" + uid);
     }
+    // createMessage: function (message) {
+    //     console.log("from API" + message);
+    //     return axios.post("/api/messages");
+
+
+    // }
 };

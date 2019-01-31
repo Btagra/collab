@@ -6,6 +6,7 @@ import {
 import API from "../utils/API";
 import { storageService, storageRef } from "../config/Fire"
 import isURL from "validator/lib/isURL"
+import './Form.css';
 
 function FieldGroup({ id, label, help, ...props }) {
     return (
@@ -81,6 +82,27 @@ class Form1 extends React.Component {
         console.log(instruments);
     }
 
+    handleGenreChange = event => {
+        // Current array of instruments
+        const genres = this.state.genres
+        // Placeholder index value
+        let index;
+
+        // Check if box is checked or unchecked
+        if (event.target.checked) {
+            genres.push(event.target.name)
+        }
+        else {
+            // Remove from array if unchecked
+            index = genres.indexOf(event.target.name)
+            genres.splice(index, 1)
+        }
+
+        // Update state with new array of options
+        this.setState({ genres: genres })
+        console.log(genres);
+    }
+
     handleFormSubmit = event => {
         event.preventDefault();
 
@@ -90,10 +112,12 @@ class Form1 extends React.Component {
             !this.state.firstname ||
             !this.state.lastname ||
             !this.state.bio ||
-            !this.state.instruments ||
-            !this.state.selectedFile
+            !this.state.instruments || 
+            !this.state.genres ||
+            !this.state.selectedFile ||
+            !this.state.portfolios
         ) {
-            alert("Please fill out all required fields.");
+            alert("Please fill out all fields!");
         }
         else {
            // Create a child directory called images, and place the file inside this directory
@@ -160,7 +184,7 @@ class Form1 extends React.Component {
                                 </FormGroup>
 
                                 <FormGroup controlId="forminline portfolio">
-                                    <ControlLabel>Portfolio/Social Media</ControlLabel>
+                                    <ControlLabel>Add a Link to Your Portfolio/Social Media</ControlLabel>
                                     <FormControl
                                         name="portfolios"
                                         type="portfolios"
@@ -168,7 +192,6 @@ class Form1 extends React.Component {
                                         placeholder="https://soundcloud.com/goodmusic"
                                         onChange={this.handleInputChange}
                                     />
-                                        <Button className="mt-3">Add Link</Button>
                                 </FormGroup>
 
                                 <FieldGroup
@@ -190,6 +213,8 @@ class Form1 extends React.Component {
                                         onChange={this.handleInputChange}
                                     />
                                 </FormGroup>
+
+                                <ControlLabel>(Please Select at Least One of Each!)</ControlLabel>
                             </Col>
 
                             <Col className="col-md-4">
@@ -308,14 +333,14 @@ class Form1 extends React.Component {
                                     <Checkbox
                                         inline
                                         name="Guitar (Electric)"
-                                        onChange={this.handleCheckChange}
+                                        onChange={this.handleGenreChange}
                                     >
                                         Guitar (Electric)
                                     </Checkbox>
                                     <Checkbox
                                         inline
                                         name="Guitar (Acoustic)"
-                                        onChange={this.handleCheckChange}
+                                        onChange={this.handleGenreChange}
                                     >
                                         Guitar (Acoustic)
                                     </Checkbox>
@@ -324,14 +349,14 @@ class Form1 extends React.Component {
                                     <Checkbox
                                         inline
                                         name="Bass (Electric)"
-                                        onChange={this.handleCheckChange}
+                                        onChange={this.handleGenreChange}
                                     >
                                         Bass (Electric)
                                     </Checkbox>
                                     <Checkbox
                                         inline
                                         name="Bass (Acoustic)"
-                                        onChange={this.handleCheckChange}
+                                        onChange={this.handleGenreChange}
                                     >
                                         Bass (Acoustic)
                                     </Checkbox>
@@ -340,14 +365,14 @@ class Form1 extends React.Component {
                                     <Checkbox
                                         inline
                                         name="Piano"
-                                        onChange={this.handleCheckChange}
+                                        onChange={this.handleGenreChange}
                                     >
                                         Piano
                                     </Checkbox>
                                     <Checkbox
                                         inline
                                         name="Violin"
-                                        onChange={this.handleCheckChange}
+                                        onChange={this.handleGenreChange}
                                     >
                                         Violin
                                     </Checkbox>
@@ -356,14 +381,14 @@ class Form1 extends React.Component {
                                     <Checkbox
                                         inline
                                         name="Harmonica"
-                                        onChange={this.handleCheckChange}
+                                        onChange={this.handleGenreChange}
                                     >
                                         Harmonica
                                     </Checkbox>
                                     <Checkbox
                                         inline
                                         name="Synths"
-                                        onChange={this.handleCheckChange}
+                                        onChange={this.handleGenreChange}
                                     >
                                         Synths
                                     </Checkbox>
@@ -372,14 +397,14 @@ class Form1 extends React.Component {
                                     <Checkbox
                                         inline
                                         name="FL Studio"
-                                        onChange={this.handleCheckChange}
+                                        onChange={this.handleGenreChange}
                                     >
                                         FL Studio
                                     </Checkbox>
                                     <Checkbox
                                         inline
                                         name="Pro Tools"
-                                        onChange={this.handleCheckChange}
+                                        onChange={this.handleGenreChange}
                                     >
                                         Pro Tools
                                     </Checkbox>
@@ -388,14 +413,14 @@ class Form1 extends React.Component {
                                     <Checkbox
                                         inline
                                         name="Ableton Live"
-                                        onChange={this.handleCheckChange}
+                                        onChange={this.handleGenreChange}
                                     >
                                         Ableton Live
                                     </Checkbox>
                                     <Checkbox
                                         inline
                                         name="Logic Pro"
-                                        onChange={this.handleCheckChange}
+                                        onChange={this.handleGenreChange}
                                     >
                                         Logic Pro
                                     </Checkbox>
@@ -404,7 +429,7 @@ class Form1 extends React.Component {
                                     <Checkbox
                                         inline
                                         name="Other"
-                                        onChange={this.handleCheckChange}
+                                        onChange={this.handleGenreChange}
                                     >
                                         Other (Make sure to list in bio!)
                                     </Checkbox>

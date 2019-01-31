@@ -332,97 +332,97 @@ class Form1 extends React.Component {
                                 <FormGroup>
                                     <Checkbox
                                         inline
-                                        name="Guitar (Electric)"
+                                        name="Pop"
                                         onChange={this.handleGenreChange}
                                     >
-                                        Guitar (Electric)
+                                        Pop
                                     </Checkbox>
                                     <Checkbox
                                         inline
-                                        name="Guitar (Acoustic)"
+                                        name="Hip Hop"
                                         onChange={this.handleGenreChange}
                                     >
-                                        Guitar (Acoustic)
-                                    </Checkbox>
-                                    <br />
-
-                                    <Checkbox
-                                        inline
-                                        name="Bass (Electric)"
-                                        onChange={this.handleGenreChange}
-                                    >
-                                        Bass (Electric)
-                                    </Checkbox>
-                                    <Checkbox
-                                        inline
-                                        name="Bass (Acoustic)"
-                                        onChange={this.handleGenreChange}
-                                    >
-                                        Bass (Acoustic)
+                                        Hip Hop
                                     </Checkbox>
                                     <br />
 
                                     <Checkbox
                                         inline
-                                        name="Piano"
+                                        name="Rap"
                                         onChange={this.handleGenreChange}
                                     >
-                                        Piano
+                                        Rap
                                     </Checkbox>
                                     <Checkbox
                                         inline
-                                        name="Violin"
+                                        name="Country"
                                         onChange={this.handleGenreChange}
                                     >
-                                        Violin
-                                    </Checkbox>
-                                    <br />
-
-                                    <Checkbox
-                                        inline
-                                        name="Harmonica"
-                                        onChange={this.handleGenreChange}
-                                    >
-                                        Harmonica
-                                    </Checkbox>
-                                    <Checkbox
-                                        inline
-                                        name="Synths"
-                                        onChange={this.handleGenreChange}
-                                    >
-                                        Synths
+                                        Country
                                     </Checkbox>
                                     <br />
 
                                     <Checkbox
                                         inline
-                                        name="FL Studio"
+                                        name="Classical"
                                         onChange={this.handleGenreChange}
                                     >
-                                        FL Studio
+                                        Classical
                                     </Checkbox>
                                     <Checkbox
                                         inline
-                                        name="Pro Tools"
+                                        name="EDM"
                                         onChange={this.handleGenreChange}
                                     >
-                                        Pro Tools
+                                        EDM
                                     </Checkbox>
                                     <br />
 
                                     <Checkbox
                                         inline
-                                        name="Ableton Live"
+                                        name="Jazz"
                                         onChange={this.handleGenreChange}
                                     >
-                                        Ableton Live
+                                        Jazz
                                     </Checkbox>
                                     <Checkbox
                                         inline
-                                        name="Logic Pro"
+                                        name="Rock and Roll"
                                         onChange={this.handleGenreChange}
                                     >
-                                        Logic Pro
+                                        Rock and Roll
+                                    </Checkbox>
+                                    <br />
+
+                                    <Checkbox
+                                        inline
+                                        name="Metal"
+                                        onChange={this.handleGenreChange}
+                                    >
+                                        Metal
+                                    </Checkbox>
+                                    <Checkbox
+                                        inline
+                                        name="Folk"
+                                        onChange={this.handleGenreChange}
+                                    >
+                                        Folk
+                                    </Checkbox>
+                                    <br />
+
+                                    <Checkbox
+                                        inline
+                                        name="Funk"
+                                        onChange={this.handleGenreChange}
+                                    >
+                                        Funk
+                                    </Checkbox>
+                                    <Checkbox
+                                        inline
+                                        name="Reggae"
+                                        onChange={this.handleGenreChange}
+                                    >
+                                        Reggae
                                     </Checkbox>
                                     <br />
 
@@ -431,7 +431,7 @@ class Form1 extends React.Component {
                                         name="Other"
                                         onChange={this.handleGenreChange}
                                     >
-                                        Other (Make sure to list in bio!)
+                                        Other/Sub-Genre (Make sure to list in bio!)
                                     </Checkbox>
                                 </FormGroup>
                             </Col>

@@ -14,6 +14,8 @@ module.exports = {
             bio: req.body.bio,
             instruments: req.body.instruments,
             image: req.body.image,
+            genres: req.body.genres,
+            portfolios: req.body.portfolios,
             q1: parseInt(req.body.q1),
             q2: parseInt(req.body.q2),
             q3: parseInt(req.body.q3),

@@ -14,6 +14,8 @@ module.exports = {
             bio: req.body.bio,
             instruments: req.body.instruments,
             image: req.body.image,
+            genres: req.body.genres,
+            portfolios: req.body.portfolios,
             q1: parseInt(req.body.q1),
             q2: parseInt(req.body.q2),
             q3: parseInt(req.body.q3),
@@ -37,7 +39,6 @@ module.exports = {
     },
     compare: (req, res) => {
         console.log(' WE HIT THE ROUTE', req.params.uid)
-        // console.log('new dude coming in!!!', req.body);
 
         db.User.find({ uid: req.params.uid })
             .populate("profiles")
@@ -45,7 +46,6 @@ module.exports = {
                 console.log("NEW USER NEEDS MATCH", result[0].profiles[0]);
 
                 db.Profile.find({}).then(function (data) {
-                    //console.log('ALL OUR OLD DUDES!!!', data);
                     var bestMatch = {
                         name: "",
                         lastName: "",
@@ -97,10 +97,8 @@ module.exports = {
                     console.log('this is our best match!', bestMatch);
                     res.json(bestMatch)
                 })
-                //    res.json(result)
             })
             .catch(err => {
-                console.log('we hit errr!', err)
                 res.status(422).json(err)
             });
     }

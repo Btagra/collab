@@ -38,6 +38,19 @@ class Home extends Component {
             });
     }
 
+    fetchMatch = (uid) => {
+        API.getMatch(uid)
+            .then(res => {
+                console.log('this is my best match', res.data)
+                console.log("state after profiles came back!", this.state);
+            });
+    }
+
+    compare = () => {
+        const { history } = this.props;
+        history.push('/compare')
+    }
+
     render() {
         return (
             <>
@@ -50,6 +63,9 @@ class Home extends Component {
                     </Navbar.Header>
                     <Navbar.Collapse>
                         <Nav pullRight>
+                            <NavItem eventKey={1}>
+                                <Button onClick={this.compare}>Compare page!!!!</Button>
+                            </NavItem>
                             <NavItem eventKey={1}>
                                 <Button onClick={this.logout}>Logout</Button>
                             </NavItem>

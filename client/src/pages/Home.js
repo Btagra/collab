@@ -46,8 +46,8 @@ class Home extends Component {
         API.getMatch(uid)
             .then(res => {
                 console.log('this is my best match', res.data)
-                this.setState({bmFirstName: res.data.name, bmLastName: res.data.lastName, bmid: res.data.id})
-            
+                this.setState({ bmFirstName: res.data.name, bmLastName: res.data.lastName, bmid: res.data.id })
+
             });
     }
 
@@ -59,13 +59,13 @@ class Home extends Component {
     render() {
         let bestMatch = ''
 
-        if(this.state.bmFirstName.length > 0) {
+        if (this.state.bmFirstName.length > 0) {
             bestMatch = (
                 <div>
-                    <hi> This is our best match!</hi>
-                    <hi> FirstName: {this.state.bmFirstName}</hi>
-                    <hi> Last Name: {this.state.bmLastName}</hi>
-                    <hi> id: {this.state.bmid}</hi>
+                    <h1> This is our best match!</h1>
+                    <h1> FirstName: {this.state.bmFirstName}</h1>
+                    <h1> Last Name: {this.state.bmLastName}</h1>
+                    <h1> id: {this.state.bmid}</h1>
                 </div>
             )
         }

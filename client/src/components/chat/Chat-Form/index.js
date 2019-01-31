@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "./style.css";
 class Form extends Component {
     constructor(props) {
         super(props)
@@ -31,7 +32,9 @@ class Form extends Component {
                         name: '',
                         message: '',
                     })
-                    // this.props.fetchMessages();
+                    console.log(this.props.fetchMessages);
+
+                    this.props.fetchMessages();
                 } else {
                     console.log('Request failure: ', res)
                 }
@@ -40,41 +43,41 @@ class Form extends Component {
                 console.log('Request failure: ', error)
             })
     }
-    createList = (signature) => {
+    createList = (chat) => {
         return (
-            <div key={signature._id} className="signature">
-                <h3 className="h3msg">{signature.message}</h3>
-                <h2 className="h2sig">-{signature.name}</h2>
+            <div key={chat._id} className="chat">
+                <h3 className="h3msg">{chat.message}</h3>
+                <h2 className="h2sig">-{chat.name}</h2>
             </div>
         )
     }
     render() {
         return (
-            <div className="guestbookDiv">
-                <form onSubmit={this.addToMessageBoard} className="guestBookForm">
-                    <label htmlFor="" className="guestlabel">
-                        What is your name?
+            <div className="chatting">
+                <form onSubmit={this.addToMessageBoard} className="chatForm">
+                    <label htmlFor="" className="namelabel">
+                        Please type your name
                   </label>
                     <input
                         type="text"
                         name="name"
                         onChange={this.handleChange}
                         value={this.state.name}
-                        className="NameinputForm"
+                        className="nameinputForm"
                     />
-                    <label className="guestlabel" htmlFor="">
-                        Leave a nice message:
+                    <label className="namelabel" htmlFor="">
+                        Ask questions or leave comments
                   </label>
                     <textarea
-                        className="MessageinputForm"
+                        className="messageinputForm"
                         type="text"
                         name="message"
                         value={this.state.message}
                         onChange={this.handleChange}
                     />
                     <div className="Submit">
-                        <button type="submit" value="Submit" className="guestbook-message">
-                            Submit Message
+                        <button type="submit" value="Submit" className="chat-message">
+                            Send
                     </button>
                     </div>
                 </form>

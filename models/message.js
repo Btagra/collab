@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const signatureSchema = new mongoose.Schema({
+const chatSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -10,6 +10,6 @@ const signatureSchema = new mongoose.Schema({
         required: true,
     },
 })
-const Signature = mongoose.model('Signature', signatureSchema);
+const Chat = mongoose.model('Signature', chatSchema);
 
-module.exports = Signature;
+module.exports = Chat;

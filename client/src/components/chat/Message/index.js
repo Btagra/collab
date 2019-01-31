@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { URL } from "url";
-import axios from "axios"
-import Form from '../Chat-Form/index'
+import "./style.css";
+import axios from "axios";
+import Form from '../Chat-Form/index';
 
 
 class Message extends Component {
@@ -9,7 +9,7 @@ class Message extends Component {
         super()
         this.state = {
             messages: '',
-            messageList: [],
+            chatList: [],
         }
     }
 
@@ -19,32 +19,33 @@ class Message extends Component {
 
     }
     fetchMessages = () => {
+        // console.log("lets see");
+
         axios.get("/api/messages")
 
-            // .then((res) => {
-
-            //     this.setState({ messages: res.data })
-            // })
             .then((res) => {
-                const messageList = res.data.map(this.createList)
-                this.setState({ messageList })
-                console.log(messageList + "messagelist");
+                const chatList = res.data.map(this.createChat)
+                this.setState({ chatList })
+
 
             })
     }
-    createList = (signature) => {
+    createChat = (chat) => {
         return (
-            <div key={signature._id} className="signature">
-                <h3 className="h3msg">{signature.message}</h3>
-                <h2 className="h2sig">-{signature.name}</h2>
+            <div key={chat._id} className="chat">
+                <h3 className="chat.message">{chat.message}</h3>
+                <h2 className="chat.name">-{chat.name}</h2>
             </div>
         )
     }
     render() {
+        // console.log(this.fetchMessages);
+
         return (
+
             <div>
-                <h6> Guest Messages</h6>
-                <div className="guestdataContainer">{this.state.messageList}</div>
+                <h6> Chat</h6>
+                <div className="chatData">{this.state.chatList}</div>
                 <Form fetchMessages={this.fetchMessages} />
             </div>
         )

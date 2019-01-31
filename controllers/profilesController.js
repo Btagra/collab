@@ -51,7 +51,8 @@ module.exports = {
                         lastName: "",
                         id: '',
                         image: "",
-                        bio: ""
+                        bio: "",
+                        portfolios: ""
 
                     };
 
@@ -94,6 +95,7 @@ module.exports = {
                                 bestMatch.id = data[i]._id
                                 bestMatch.image = data[i].image
                                 bestMatch.bio = data[i].bio
+                                bestMatch.portfolios = data[i].portfolios
                             }
 
                         }

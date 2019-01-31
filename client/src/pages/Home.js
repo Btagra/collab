@@ -17,8 +17,8 @@ class Home extends Component {
         bmFirstName: '',
         bmLastName: '',
         bmbio: '',
-        bmimage: ''
-
+        bmimage: '',
+        bmportfolios: ''
     };
 
     logout() {
@@ -81,6 +81,7 @@ class Home extends Component {
                     <h3> This is our best match!</h3>
                     <h3> FullName: {this.state.bmFirstName} {this.state.bmLastName}</h3>
                     <h3> Bio: {this.state.bmbio}</h3>
+                    <h3> Portfolio: {this.state.bmportfolios}</h3>
                 </div>
             )
         }

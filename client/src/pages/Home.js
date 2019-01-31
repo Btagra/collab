@@ -98,7 +98,7 @@ class Home extends Component {
                                         height={"auto"}
                                         className="mr-3"
                                         src={this.state.profiles.image}
-                                        alt="Profile Picture" />
+                                        alt="Profile" />
                                 </Col>
                                 <Col xs={6} md={8}>
                                     <Media.Body>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Button, Form, FormGroup, ControlLabel, FormControl, Grid, Alert, Checkbox } from 'react-bootstrap';
+import { 
+    Button, Form, FormGroup, ControlLabel, FormControl, Grid, Alert, Checkbox, Row, Col
+} from 'react-bootstrap';
 import API from "../utils/API";
 import { storageService, storageRef } from "../config/Fire"
 
@@ -126,158 +128,271 @@ class Form1 extends React.Component {
             <>
                 <Grid>
                     <Form>
-                        <Alert bsStyle="warning">
-                            <strong>
-                                Before you get started searching for collaborators, please tell us a little bit about yourself!
-                            </strong>
-                        </Alert>
-                        <FormGroup controlId="forminline Name">
-                            <ControlLabel>First Name</ControlLabel>
-                            <FormControl
-                                name="firstname"
-                                type="firstname"
-                                value={this.state.firstname}
-                                placeholder="Bobby"
-                                onChange={this.handleInputChange}
-                            />
-                        </FormGroup>
-                        <FormGroup controlId="forminline Name">
-                            <ControlLabel>Last Name</ControlLabel>
-                            <FormControl
-                                type="lastname"
-                                name="lastname"
-                                value={this.state.lastname}
-                                placeholder="Shmurda"
-                                onChange={this.handleInputChange}
-                            />
-                        </FormGroup>
+                        <Row>
+                            <Col>
+                                <Alert bsStyle="warning">
+                                    <strong>
+                                        Before you get started searching for collaborators, please tell us a little bit about yourself!
+                                    </strong>
+                                </Alert>
+                                <FormGroup controlId="forminline Name">
+                                    <ControlLabel>First Name</ControlLabel>
+                                    <FormControl
+                                        name="firstname"
+                                        type="firstname"
+                                        value={this.state.firstname}
+                                        placeholder="Bobby"
+                                        onChange={this.handleInputChange}
+                                    />
+                                </FormGroup>
+                                <FormGroup controlId="forminline Name">
+                                    <ControlLabel>Last Name</ControlLabel>
+                                    <FormControl
+                                        type="lastname"
+                                        name="lastname"
+                                        value={this.state.lastname}
+                                        placeholder="Shmurda"
+                                        onChange={this.handleInputChange}
+                                    />
+                                </FormGroup>
 
-                        <FieldGroup
-                            id="formControlsFile"
-                            type="file"
-                            label="Profile Picture"
-                            accept="image/jpeg, image/png"
-                            onChange={this.fileChangedHandler}
-                        />
+                                <FieldGroup
+                                    id="formControlsFile"
+                                    type="file"
+                                    label="Profile Picture"
+                                    accept="image/jpeg, image/png"
+                                    onChange={this.fileChangedHandler}
+                                />
 
-                        <FormGroup controlId="formControlsTextarea">
-                            <ControlLabel>Bio</ControlLabel>
-                            <FormControl
-                                name="bio"
-                                type="bio"
-                                value={this.state.bio}
-                                componentClass="textarea"
-                                placeholder="Write at least a few sentences about yourself!"
-                                onChange={this.handleInputChange}
-                            />
-                        </FormGroup>
+                                <FormGroup controlId="formControlsTextarea">
+                                    <ControlLabel>Bio</ControlLabel>
+                                    <FormControl
+                                        name="bio"
+                                        type="bio"
+                                        value={this.state.bio}
+                                        componentClass="textarea"
+                                        placeholder="Write at least a few sentences about yourself!"
+                                        onChange={this.handleInputChange}
+                                    />
+                                </FormGroup>
+                            </Col>
+                            <Col className="col-md-4">
+                            <ControlLabel>What Instruments/Technologies Do You Use?</ControlLabel>
+                            <FormGroup>
+                                <Checkbox
+                                    inline
+                                    name="Guitar (Electric)"
+                                    onChange={this.handleCheckChange}
+                                >
+                                    Guitar (Electric)
+                                </Checkbox>
+                                <Checkbox
+                                    inline
+                                    name="Guitar (Acoustic)"
+                                    onChange={this.handleCheckChange}
+                                >
+                                    Guitar (Acoustic)
+                                </Checkbox>
+                                <br />
 
-                        <ControlLabel>What Instruments/Technologies Do You Use?</ControlLabel>
-                        <FormGroup>
-                            <Checkbox
-                                inline
-                                name="Guitar (Electric)"
-                                onChange={this.handleCheckChange}
-                            >
-                                Guitar (Electric)
-                            </Checkbox>
-                            <Checkbox
-                                inline
-                                name="Guitar (Acoustic)"
-                                onChange={this.handleCheckChange}
-                            >
-                                Guitar (Acoustic)
-                            </Checkbox>
-                            <br />
+                                <Checkbox
+                                    inline
+                                    name="Bass (Electric)"
+                                    onChange={this.handleCheckChange}
+                                >
+                                    Bass (Electric)
+                                </Checkbox>
+                                <Checkbox
+                                    inline
+                                    name="Bass (Acoustic)"
+                                    onChange={this.handleCheckChange}
+                                >
+                                    Bass (Acoustic)
+                                </Checkbox>
+                                <br />
 
-                            <Checkbox
-                                inline
-                                name="Bass (Electric)"
-                                onChange={this.handleCheckChange}
-                            >
-                                Bass (Electric)
-                            </Checkbox>
-                            <Checkbox
-                                inline
-                                name="Bass (Acoustic)"
-                                onChange={this.handleCheckChange}
-                            >
-                                Bass (Acoustic)
-                            </Checkbox>
-                            <br />
+                                <Checkbox
+                                    inline
+                                    name="Piano"
+                                    onChange={this.handleCheckChange}
+                                >
+                                    Piano
+                                </Checkbox>
+                                <Checkbox
+                                    inline
+                                    name="Violin"
+                                    onChange={this.handleCheckChange}
+                                >
+                                    Violin
+                                </Checkbox>
+                                <br />
 
-                            <Checkbox
-                                inline
-                                name="Piano"
-                                onChange={this.handleCheckChange}
-                            >
-                                Piano
-                            </Checkbox>
-                            <Checkbox
-                                inline
-                                name="Violin"
-                                onChange={this.handleCheckChange}
-                            >
-                                Violin
-                            </Checkbox>
-                            <br />
+                                <Checkbox
+                                    inline
+                                    name="Harmonica"
+                                    onChange={this.handleCheckChange}
+                                >
+                                    Harmonica
+                                </Checkbox>
+                                <Checkbox
+                                    inline
+                                    name="Synths"
+                                    onChange={this.handleCheckChange}
+                                >
+                                    Synths
+                                </Checkbox>
+                                <br />
 
-                            <Checkbox
-                                inline
-                                name="Harmonica"
-                                onChange={this.handleCheckChange}
-                            >
-                                Harmonica
-                            </Checkbox>
-                            <Checkbox
-                                inline
-                                name="Synths"
-                                onChange={this.handleCheckChange}
-                            >
-                                Synths
-                            </Checkbox>
-                            <br />
+                                <Checkbox
+                                    inline
+                                    name="FL Studio"
+                                    onChange={this.handleCheckChange}
+                                >
+                                    FL Studio
+                                </Checkbox>
+                                <Checkbox
+                                    inline
+                                    name="Pro Tools"
+                                    onChange={this.handleCheckChange}
+                                >
+                                    Pro Tools
+                                </Checkbox>
+                                <br />
 
-                            <Checkbox
-                                inline
-                                name="FL Studio"
-                                onChange={this.handleCheckChange}
-                            >
-                                FL Studio
-                            </Checkbox>
-                            <Checkbox
-                                inline
-                                name="Pro Tools"
-                                onChange={this.handleCheckChange}
-                            >
-                                Pro Tools
-                            </Checkbox>
-                            <br />
+                                <Checkbox
+                                    inline
+                                    name="Ableton Live"
+                                    onChange={this.handleCheckChange}
+                                >
+                                    Ableton Live
+                                </Checkbox>
+                                <Checkbox
+                                    inline
+                                    name="Logic Pro"
+                                    onChange={this.handleCheckChange}
+                                >
+                                    Logic Pro
+                                </Checkbox>
+                                <br />
 
-                            <Checkbox
-                                inline
-                                name="Ableton Live"
-                                onChange={this.handleCheckChange}
-                            >
-                                Ableton Live
-                            </Checkbox>
-                            <Checkbox
-                                inline
-                                name="Logic Pro"
-                                onChange={this.handleCheckChange}
-                            >
-                                Logic Pro
-                            </Checkbox>
-                            <br />
+                                <Checkbox
+                                    inline
+                                    name="Other"
+                                    onChange={this.handleCheckChange}
+                                >
+                                    Other (Make sure to list in bio!)
+                                </Checkbox>
+                            </FormGroup>
+                            </Col>
+                            <Col className="col-md-4">
+                                <ControlLabel>What Genres of Music Do You Enjoy?</ControlLabel>
+                                <FormGroup>
+                                    <Checkbox
+                                        inline
+                                        name="Guitar (Electric)"
+                                        onChange={this.handleCheckChange}
+                                    >
+                                        Guitar (Electric)
+                                    </Checkbox>
+                                    <Checkbox
+                                        inline
+                                        name="Guitar (Acoustic)"
+                                        onChange={this.handleCheckChange}
+                                    >
+                                        Guitar (Acoustic)
+                                    </Checkbox>
+                                    <br />
 
-                            <Checkbox
-                                inline
-                                name="Other"
-                                onChange={this.handleCheckChange}
-                            >
-                                Other (Make sure to list in bio!)
-                            </Checkbox>
-                        </FormGroup>
+                                    <Checkbox
+                                        inline
+                                        name="Bass (Electric)"
+                                        onChange={this.handleCheckChange}
+                                    >
+                                        Bass (Electric)
+                                    </Checkbox>
+                                    <Checkbox
+                                        inline
+                                        name="Bass (Acoustic)"
+                                        onChange={this.handleCheckChange}
+                                    >
+                                        Bass (Acoustic)
+                                    </Checkbox>
+                                    <br />
+
+                                    <Checkbox
+                                        inline
+                                        name="Piano"
+                                        onChange={this.handleCheckChange}
+                                    >
+                                        Piano
+                                    </Checkbox>
+                                    <Checkbox
+                                        inline
+                                        name="Violin"
+                                        onChange={this.handleCheckChange}
+                                    >
+                                        Violin
+                                    </Checkbox>
+                                    <br />
+
+                                    <Checkbox
+                                        inline
+                                        name="Harmonica"
+                                        onChange={this.handleCheckChange}
+                                    >
+                                        Harmonica
+                                    </Checkbox>
+                                    <Checkbox
+                                        inline
+                                        name="Synths"
+                                        onChange={this.handleCheckChange}
+                                    >
+                                        Synths
+                                    </Checkbox>
+                                    <br />
+
+                                    <Checkbox
+                                        inline
+                                        name="FL Studio"
+                                        onChange={this.handleCheckChange}
+                                    >
+                                        FL Studio
+                                    </Checkbox>
+                                    <Checkbox
+                                        inline
+                                        name="Pro Tools"
+                                        onChange={this.handleCheckChange}
+                                    >
+                                        Pro Tools
+                                    </Checkbox>
+                                    <br />
+
+                                    <Checkbox
+                                        inline
+                                        name="Ableton Live"
+                                        onChange={this.handleCheckChange}
+                                    >
+                                        Ableton Live
+                                    </Checkbox>
+                                    <Checkbox
+                                        inline
+                                        name="Logic Pro"
+                                        onChange={this.handleCheckChange}
+                                    >
+                                        Logic Pro
+                                    </Checkbox>
+                                    <br />
+
+                                    <Checkbox
+                                        inline
+                                        name="Other"
+                                        onChange={this.handleCheckChange}
+                                    >
+                                        Other (Make sure to list in bio!)
+                                    </Checkbox>
+                                </FormGroup>
+                            </Col>
+                        </Row>
                     </Form>
                     <div>
                         <h3><strong>Question 1</strong></h3>

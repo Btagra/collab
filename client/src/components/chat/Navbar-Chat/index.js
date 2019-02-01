@@ -8,8 +8,8 @@ import Icon from "../Message-Icon/index";
 class NavChat extends Component {
     constructor(props) {
         super(props);
-        this.logout = this.logout.bind(this);
 
+        this.logout = this.logout.bind(this);
     }
 
     state = {

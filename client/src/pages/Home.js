@@ -77,8 +77,8 @@ class Home extends Component {
         if (this.state.bmFirstName.length > 0) {
             bestMatch = (
                 <div>
-                    <h3 className="bestmatch"> This is our best match!</h3>
-                    <h3 className="fullname"> Name: {this.state.bmFirstName} {this.state.bmLastName}</h3>
+                    <h3 className="bestmatch">Your Collab partner is:</h3>
+                    <h3 className="fullname">{this.state.bmFirstName} {this.state.bmLastName}</h3>
                     <img width={200} height={"auto"} src={this.state.bmimage} alt="no image" />
                     <h3 className="bio"> Bio: {this.state.bmbio}</h3>
                     <h3 className="portfolio"> Contact: {this.state.bmportfolios}</h3>
@@ -97,7 +97,7 @@ class Home extends Component {
                     <Navbar.Collapse>
                         <Nav pullRight>
                             <NavItem eventKey={1}>
-                                <Button onClick={this.compare}>Compare page!!!!</Button>
+                                <Button onClick={this.compare}>COLLAB</Button>
                             </NavItem>
                             <NavItem >
                                 <Icon />

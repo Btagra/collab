@@ -1,45 +1,40 @@
-h3{
-    border: 2px solid #dedede;
-  background-color: #f1f1f1;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 10px 0;
-  float: initial;
-    
+h6 {
+    color: #222222;
+    font-size: 70px;
+    font-weight: bold;
+    width: 750px;
+    margin: 85px auto;
+    text-align: center;
+    font-family: 'Hammersmith One', sans-serif;
 }
 
-.h2{
-    border-color: #ccc;
-    float: inherit;
-    background-color: #ddd;
-}
- .chatForm {
-float: right;
-margin-left: 50px;
-width: 300px;
-}
 label {
-    
-    float: right;
-    top: 15px;;
-    letter-spacing: 3px;
-    font-size: 30px;
-    color: rgba(4, 23, 37, 0.8);
+    float: left;
+    top: 5px;
+    letter-spacing: 0px;
+    font-size: 25px;
+    color: rgb(34, 34, 34);
+    font-family: 'Hammersmith One', sans-serif;
     -webkit-transform-origin: left;
-        -ms-transform-origin: left;
-            transform-origin: left;
-    -webkit-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-    font-family: cursive;
+    transform-origin: left;
+    transition: inherit;
 }
 
-.chat {
-margin: 8px;
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    font-family: 'Hammersmith One', sans-serif;
 }
-.chatting {
-    /* overflow: scroll;
-    width: 580px;
-    height: 380px; */
-/* float: right; */
+
+.chatData {
+    width: 730px;
+    background-color: #222222;
+    border: 2px solid #dedede;
+    border-radius: 5px;
+    overflow: scroll;
+    height: 400px;
+    float: left;
+    display: inline;
+    margin-left: 20px;
 }

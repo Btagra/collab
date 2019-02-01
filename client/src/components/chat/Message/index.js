@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./style.css";
 import axios from "axios";
 import Form from '../Chat-Form/index';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 class Message extends Component {
     constructor() {
@@ -31,15 +32,22 @@ class Message extends Component {
             </div>
         );
     }
-    
+
     render() {
 
         return (
-            <div>
-                <h6 className="welcome"> Welcome to Chat</h6>
-                <div className="chatData">{this.state.chatList}</div>
-                <Form fetchMessages={this.fetchMessages} />
-            </div>
+            <>
+                <Grid>
+                    <h6 className="welcome"> Welcome to Chat</h6>
+                    <Row>
+                        <Col>
+                            <div className="chatData">{this.state.chatList}</div>
+                        </Col>
+                        <Col>
+                            <Form fetchMessages={this.fetchMessages} /></Col>
+                    </Row>
+                </Grid>
+            </>
         );
     }
 }

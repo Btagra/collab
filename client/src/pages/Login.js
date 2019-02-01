@@ -18,7 +18,6 @@ class Login extends Component {
                 <Navbar handleOnClick={this.handleOnClick} />
                 {this.state.loginType && <LoginForm type={this.state.loginType} />}
 
-
                 <h2 className="aboutFont">Find artists to colloborate with based on musical compatiability. Sign up now!</h2>
                 <br></br>
                 <h1 className="homeFont">C</h1>

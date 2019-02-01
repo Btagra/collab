@@ -8,6 +8,7 @@ import Icon from "../components/chat/Message-Icon/index";
 class Home extends Component {
     constructor(props) {
         super(props);
+
         this.logout = this.logout.bind(this);
     }
 
@@ -28,6 +29,7 @@ class Home extends Component {
 
     componentDidMount() {
         const uid = localStorage.getItem("uid");
+
         this.fetchNotes(uid);
         this.fetchMatch(uid);
     }
@@ -40,6 +42,7 @@ class Home extends Component {
         API.getUser(uid)
             .then(res => {
                 const profiles = res.data[0].profiles[0];
+
                 if (profiles !== 0) {
                     this.setState({
                         profiles
@@ -57,6 +60,7 @@ class Home extends Component {
 
     compare = () => {
         const uid = localStorage.getItem("uid");
+
         this.handleShow();
         this.fetchMatch(uid);
     }
@@ -75,7 +79,7 @@ class Home extends Component {
         if (this.state.bmFirstName.length > 0) {
             bestMatch = (
                 <div>
-                    <h3 className="bestmatch">Your Collab partner is:</h3>
+                    <h3 className="bestmatch">Your Collab Partner Is:</h3>
                     <h3 className="fullname">{this.state.bmFirstName} {this.state.bmLastName}</h3>
                     <img width={200} height={"auto"} src={this.state.bmimage} alt="no image" />
                     <h3 className="bio"> Bio: {this.state.bmbio}</h3>

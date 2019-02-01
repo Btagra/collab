@@ -29,13 +29,6 @@ class Compare extends Component {
         API.getMatch(uid)
             .then(res => {
                 console.log('this is my best match', res.data)
-                //console.log(res.data[0].profiles[0]);
-                /* const profiles = res.data[0].profiles[0];
-                 if (profiles !== 0) {
-                     this.setState({
-                         profiles
-                     });
-                 }*/
                 console.log("state after profiles came back!", this.state);
             });
 
@@ -44,7 +37,7 @@ class Compare extends Component {
     render() {
         return (
             <>
-                <div> Compare page</div>
+                <div>Compare</div>
             </>
         );
     }

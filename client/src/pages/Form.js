@@ -115,7 +115,7 @@ class Form1 extends React.Component {
                 storageRef.child(`images/${this.state.selectedFile.name}`).put(this.state.selectedFile);
 
             uploadTask.on("state_changed", snapshot => {
-                // Observe state changes 
+                // Observe state changes - can add upload progress here, etc.
             }, (error) => {
                 // Handle errors
                 console.log(error);

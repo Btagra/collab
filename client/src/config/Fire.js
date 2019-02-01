@@ -2,7 +2,7 @@ import firebase from 'firebase';
 import 'firebase/storage';
 
 const config = { /* COPY THE ACTUAL CONFIG FROM FIREBASE CONSOLE */
-    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    apiKey: "AIzaSyAvpYteIFgohiNWveJMw4JwZKLbmY6bHf4",
     authDomain: "collab-30acf.firebaseapp.com",
     databaseURL: "https://collab-30acf.firebaseio.com",
     projectId: "collab-30acf",

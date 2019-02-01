@@ -23,11 +23,11 @@ text-align: center;
 }
    
    @-webkit-keyframes switch-color {
-     0%{
-       color:rgb(253, 23, 234);
-     }
-     100%{
-       color:rgba(17, 0, 255, 0.966);
+    0%{
+        color:rgb(4, 48, 245);
+      }
+      100%{
+        color:rgb(231, 13, 31);
      }
    }
    
@@ -58,3 +58,37 @@ text-align: center;
     font-style: italic;
     
 }
+.bio1{
+
+}
+/* .bio1{
+    font-size:70px;
+    font-weight:bold;
+    color:rgba(8, 21, 212, 0.904);
+    width:700px;
+   
+    -webkit-animation: genres 2s ease 0s infinite normal ;
+    animation: genres 2s ease 0s infinite normal ;
+   }
+   
+   @-webkit-keyframes genres {
+    0%{
+        opacity: 0;
+        transform: scale3d(0.4, 0.4, 0.4);
+      }
+      40%{
+        opacity: 1;
+        transform: scale3d(1,1,1);
+     }
+   }
+   
+   @keyframes genres {
+     0%{
+       opacity: 0;
+       transform: scale3d(0.4, 0.4, 0.4);
+     }
+     40%{
+       opacity: 1;
+       transform: scale3d(1,1,1);
+     }
+   } */

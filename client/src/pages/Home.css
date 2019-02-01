@@ -8,5 +8,53 @@
     font-size: 20px;
     text-align: center;
     font-family: 'Hammersmith One', sans-serif;
-
+}
+.bestmatch{
+    background: rgba(255, 174, 0, 0.87);
+    font-style: italic;
+    text-shadow: 3px 2px;
+font-size: 50px;
+text-align: center;
+    font-weight:bold;
+    color:rgb(11, 136, 238);
+    width:570px;
+    -webkit-animation: switch-color 2s ease 0s infinite normal ;
+    animation: switch-color 2s ease 0s infinite normal ;
+}
+   
+   @-webkit-keyframes switch-color {
+     0%{
+       color:rgb(253, 23, 234);
+     }
+     100%{
+       color:rgba(17, 0, 255, 0.966);
+     }
+   }
+   
+   @keyframes switch-color {
+     0%{
+       color:rgb(4, 48, 245);
+     }
+     100%{
+       color:rgb(231, 13, 31);
+     }
+   }
+.fullname{
+    font-size: 25px;
+    background: rgba(255, 174, 0, 0.87);
+    font-weight: bold;
+    font-style: italic;
+}
+.bio{
+    font-size: 25px;
+    background: rgba(255, 174, 0, 0.87);
+    font-weight: bold;
+    font-style: italic;
+}
+.portfolio{
+    font-size: 25px;
+    background: rgba(255, 174, 0, 0.87);
+    font-weight: bold;
+    font-style: italic;
+    
 }

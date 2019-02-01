@@ -19,7 +19,7 @@ class Message extends Component {
 
     }
     fetchMessages = () => {
-        // console.log("lets see");
+
 
         axios.get("/api/messages")
 
@@ -39,7 +39,7 @@ class Message extends Component {
         )
     }
     render() {
-        // console.log(this.fetchMessages);
+
 
         return (
 

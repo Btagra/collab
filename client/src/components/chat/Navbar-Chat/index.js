@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import fire from "../../../config/Fire";
 import { Link } from "react-router-dom";
-import { Nav, NavItem, Button, Navbar } from 'react-bootstrap';
+import { Nav, Navbar, NavItem } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
+
+
 
 import API from '../../../utils/API';
 import Icon from "../Message-Icon/index";
@@ -20,14 +23,14 @@ class NavChat extends Component {
     };
 
     logout() {
-        // alert("Alert");
+
         fire.auth().signOut();
-        console.log(fire.auth().signOut());
+
 
     }
 
     componentDidMount() {
-        console.log("Here we are");
+
 
         const uid = localStorage.getItem("uid");
         this.fetchNotes(uid);
@@ -36,14 +39,14 @@ class NavChat extends Component {
     fetchNotes = (uid) => {
         API.getUser(uid)
             .then(res => {
-                console.log(res.data[0].profiles[0]);
+
                 const profiles = res.data[0].profiles[0];
                 if (profiles !== 0) {
                     this.setState({
                         profiles
                     });
                 }
-                console.log("state after profiles came back!", this.state);
+
             });
     }
 
@@ -61,13 +64,15 @@ class NavChat extends Component {
                 <Navbar.Collapse>
                     <Nav pullRight>
 
-                        <NavItem className="icon-style">
+                        <NavItem >
                             <Icon />
                         </NavItem>
-
-                        <NavItem eventKey={1}>
-                            <Link to="/home" className="goback">Go Back</Link>
-                        </NavItem>
+                        <LinkContainer to="/">
+                            <NavItem eventKey={1}>Go Back</NavItem>
+                        </LinkContainer>
+                        {/* <NavItem componentClass='span'>
+                            <Link to="/home" >Go Back</Link>
+                        </NavItem> */}
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

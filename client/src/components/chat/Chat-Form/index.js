@@ -11,7 +11,7 @@ class Form extends Component {
     }
 
     handleChange = (event) => {
-        console.log(event.target.value + "this is our event");
+
 
         this.setState({
             [event.target.name]: event.target.value,
@@ -27,12 +27,12 @@ class Form extends Component {
         })
             .then((res) => {
                 if (res.status === 200) {
-                    console.log('Request success: ', res)
+
                     this.setState({
                         name: '',
                         message: '',
                     })
-                    console.log(this.props.fetchMessages);
+
 
                     this.props.fetchMessages();
                 } else {

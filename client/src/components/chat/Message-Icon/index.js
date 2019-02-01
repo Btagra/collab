@@ -5,8 +5,6 @@ import { MdChat } from "react-icons/md";
 import { LinkContainer } from 'react-router-bootstrap';
 
 
-
-
 class Icon extends React.Component {
     render() {
         return (
@@ -16,4 +14,5 @@ class Icon extends React.Component {
         )
     }
 }
+
 export default Icon;

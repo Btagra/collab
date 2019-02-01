@@ -6,9 +6,6 @@ import Login from "./pages/Login";
 import User from "./pages/User";
 import Form from "./pages/Form";
 import App1 from "./components/chat/Chat-App/index";
-
-// import Icon from "./components/chat/Message-Icon/index";
-
 import Compare from './pages/compare.js';
 
 

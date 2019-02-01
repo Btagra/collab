@@ -21,7 +21,7 @@ const OurNavbar = (props) => {
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
-    )
+    );
 }
 
 export default OurNavbar;

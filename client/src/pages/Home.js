@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import fire from '../config/Fire';
-import { Nav, NavItem, Button, Navbar, Media, Grid, Row, Col, ListGroup, ListGroupItem, Modal } from 'react-bootstrap';
+import { Nav, NavItem, Button, Navbar, Media, Grid, Row, Col, ListGroup, Modal } from 'react-bootstrap';
 import API from '../utils/API';
 import './Home.css';
 import Icon from "../components/chat/Message-Icon/index";
@@ -8,6 +8,7 @@ import Icon from "../components/chat/Message-Icon/index";
 class Home extends Component {
     constructor(props) {
         super(props);
+
         this.logout = this.logout.bind(this);
     }
 
@@ -28,6 +29,7 @@ class Home extends Component {
 
     componentDidMount() {
         const uid = localStorage.getItem("uid");
+
         this.fetchNotes(uid);
         this.fetchMatch(uid);
     }
@@ -39,8 +41,8 @@ class Home extends Component {
     fetchNotes = (uid) => {
         API.getUser(uid)
             .then(res => {
-                console.log(res.data[0].profiles[0]);
                 const profiles = res.data[0].profiles[0];
+
                 if (profiles !== 0) {
                     this.setState({
                         profiles
@@ -52,14 +54,13 @@ class Home extends Component {
     fetchMatch = (uid) => {
         API.getMatch(uid)
             .then(res => {
-                console.log('this is my best match', res.data)
                 this.setState({ bmFirstName: res.data.name, bmLastName: res.data.lastName, bmbio: res.data.bio, bmimage: res.data.image })
-
             });
     }
 
     compare = () => {
         const uid = localStorage.getItem("uid");
+
         this.handleShow();
         this.fetchMatch(uid);
     }
@@ -78,7 +79,7 @@ class Home extends Component {
         if (this.state.bmFirstName.length > 0) {
             bestMatch = (
                 <div>
-                    <h3 className="bestmatch">Your Collab partner is:</h3>
+                    <h3 className="bestmatch">Your Collab Partner Is:</h3>
                     <h3 className="fullname">{this.state.bmFirstName} {this.state.bmLastName}</h3>
                     <img width={200} height={"auto"} src={this.state.bmimage} alt="no image" />
                     <h3 className="bio"> Bio: {this.state.bmbio}</h3>
@@ -140,8 +141,8 @@ class Home extends Component {
                             </Media>
                         </Row>
                     </Grid>)}
-                <Modal show={this.state.show} onHide={this.handleClose}>
 
+                <Modal show={this.state.show} onHide={this.handleClose}>
                     <Modal.Header>
                         <Row className="show-grid">
                             <Col xs={9} md={8}>

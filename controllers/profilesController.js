@@ -7,7 +7,6 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     newProfile: (req, res) => {
-        console.log('We are about to save this user', req.body)
         db.Profile.create({
             firstName: req.body.firstname,
             lastName: req.body.lastname,
@@ -38,13 +37,9 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     compare: (req, res) => {
-        console.log(' WE HIT THE ROUTE', req.params.uid)
-
         db.User.find({ uid: req.params.uid })
             .populate("profiles")
             .then(result => {
-                console.log("NEW USER NEEDS MATCH", result[0].profiles[0]);
-
                 db.Profile.find({}).then(function (data) {
                     var bestMatch = {
                         name: "",
@@ -53,7 +48,6 @@ module.exports = {
                         image: "",
                         bio: "",
                         portfolios: ""
-
                     };
 
                     var newDudeTotal = 0
@@ -68,8 +62,6 @@ module.exports = {
                     newDudeTotal += parseInt(result[0].profiles[0].q9)
                     newDudeTotal += parseInt(result[0].profiles[0].q10)
 
-                    console.log('NEW USER TOTAL!', newDudeTotal);
-
                     var smallestDifference = 100000
                     for (var i = 0; i < data.length; i++) {
                         var oldDudeTotal = 0
@@ -83,12 +75,8 @@ module.exports = {
                         oldDudeTotal += data[i].q8
                         oldDudeTotal += data[i].q9
                         oldDudeTotal += data[i].q10
-                        console.log('OLD USER TOTAL', data[i].firstName, oldDudeTotal);
                         if ((newDudeTotal - oldDudeTotal) < smallestDifference) {
-                            console.log('Logged In Id', result[0].profiles[0]._id)
-                            console.log('compare user id', data[i]._id)
                             if (data[i].firstName !== result[0].profiles[0].firstName) {
-                                console.log('inside the if! not the same!')
                                 smallestDifference = Math.abs(newDudeTotal - oldDudeTotal);
                                 bestMatch.name = data[i].firstName
                                 bestMatch.lastName = data[i].lastName
@@ -97,12 +85,10 @@ module.exports = {
                                 bestMatch.bio = data[i].bio
                                 bestMatch.portfolios = data[i].portfolios
                             }
-
                         }
                     }
-                    console.log('this is our best match!', bestMatch);
                     res.json(bestMatch)
-                })
+                });
             })
             .catch(err => {
                 res.status(422).json(err)

@@ -11,11 +11,9 @@ import Icon from "../Message-Icon/index";
 class NavChat extends Component {
     constructor(props) {
         super(props);
+
         this.logout = this.logout.bind(this);
-
     }
-
-
 
     state = {
         uid: '',
@@ -23,15 +21,10 @@ class NavChat extends Component {
     };
 
     logout() {
-
         fire.auth().signOut();
-
-
     }
 
     componentDidMount() {
-
-
         const uid = localStorage.getItem("uid");
         this.fetchNotes(uid);
     }
@@ -39,8 +32,7 @@ class NavChat extends Component {
     fetchNotes = (uid) => {
         API.getUser(uid)
             .then(res => {
-
-                const profiles = res.data[0].profiles[0];
+              const profiles = res.data[0].profiles[0];
                 if (profiles !== 0) {
                     this.setState({
                         profiles
@@ -50,34 +42,33 @@ class NavChat extends Component {
             });
     }
 
-
     render() {
         return (
-
             <Navbar inverse collapseOnSelect>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        {this.state.profiles && <h1>{this.state.profiles.firstName} {this.state.profiles.lastName}</h1>}
+                        {
+                            this.state.profiles && 
+                            <h1>
+                                {this.state.profiles.firstName} 
+                                {this.state.profiles.lastName}
+                            </h1>
+                        }
                     </Navbar.Brand>
                     <Navbar.Toggle />
                 </Navbar.Header>
                 <Navbar.Collapse>
                     <Nav pullRight>
-
-                        <NavItem >
+                        <NavItem className="icon-style">
                             <Icon />
                         </NavItem>
                         <LinkContainer to="/">
                             <NavItem eventKey={1}>Go Back</NavItem>
                         </LinkContainer>
-                        {/* <NavItem componentClass='span'>
-                            <Link to="/home" >Go Back</Link>
-                        </NavItem> */}
+                       
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
-
-
         );
     }
 }

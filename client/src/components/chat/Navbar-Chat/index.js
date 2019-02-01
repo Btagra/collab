@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import fire from "../../../config/Fire";
 import { Link } from "react-router-dom";
-import { Nav, NavItem, Button, Navbar } from 'react-bootstrap';
+import { Nav, Navbar, NavItem } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
+
+
 
 import API from '../../../utils/API';
 import Icon from "../Message-Icon/index";
@@ -23,19 +26,20 @@ class NavChat extends Component {
 
     componentDidMount() {
         const uid = localStorage.getItem("uid");
-
         this.fetchNotes(uid);
     }
 
     fetchNotes = (uid) => {
         API.getUser(uid)
-        .then(res => {
-            const profiles = res.data[0].profiles[0];
+            .then(res => {
+              const profiles = res.data[0].profiles[0];
+                if (profiles !== 0) {
+                    this.setState({
+                        profiles
+                    });
+                }
 
-            if (profiles !== 0) {
-                this.setState({ profiles });
-            }
-        });
+            });
     }
 
     render() {
@@ -58,10 +62,10 @@ class NavChat extends Component {
                         <NavItem className="icon-style">
                             <Icon />
                         </NavItem>
-
-                        <NavItem eventKey={1}>
-                            <Link to="/home" className="goback">Go Back</Link>
-                        </NavItem>
+                        <LinkContainer to="/">
+                            <NavItem eventKey={1}>Go Back</NavItem>
+                        </LinkContainer>
+                       
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

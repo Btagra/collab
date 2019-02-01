@@ -12,6 +12,7 @@ class Form extends Component {
     }
 
     handleChange = (event) => {
+
         this.setState({
             [event.target.name]: event.target.value,
         })
@@ -25,8 +26,7 @@ class Form extends Component {
             name: this.state.name,
             message: this.state.message,
 
-        })
-        .then((res) => {
+        }).then((res) => {
             if (res.status === 200) {
                 this.setState({
                     name: '',

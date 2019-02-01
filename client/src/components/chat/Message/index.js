@@ -33,6 +33,7 @@ class Message extends Component {
     }
     
     render() {
+
         return (
             <div>
                 <h6 className="welcome"> Welcome to Chat</h6>

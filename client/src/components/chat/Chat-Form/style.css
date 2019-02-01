@@ -11,13 +11,19 @@ h3{
 .h2{
     border-color: #ccc;
     float: inherit;
-    background-color: #ddd;
+    background-color: rgb(221, 221, 221); 
 }
+
  .chatForm {
 float: right;
 margin-left: 50px;
 width: 300px;
 }
+.messageinputForm,
+.nameinputForm{
+    width: 500px;
+}
+
 /* label {
     
     float: right;
@@ -42,4 +48,10 @@ margin: 8px;
     width: 580px;
     height: 380px; */
 /* float: right; */
+}
+.namelabel{
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    font-size: 40px;
+    width: 450spx;
+    
 }

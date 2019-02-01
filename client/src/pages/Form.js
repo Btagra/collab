@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { 
+import {
     Button, Form, FormGroup, ControlLabel, FormControl, Grid, Alert, Checkbox, Row, Col
 } from 'react-bootstrap';
 import API from "../utils/API";
@@ -50,12 +50,10 @@ class Form1 extends React.Component {
 
     fileChangedHandler = event => {
         this.setState({ selectedFile: event.target.files[0] });
-        console.log(event.target.files[0]);
     }
 
     handleInputChange = event => {
         const { name, value } = event.target;
-        console.log(`${name}: ${value}`)
         this.setState({
             [name]: value
         });
@@ -79,7 +77,6 @@ class Form1 extends React.Component {
 
         // Update state with new array of options
         this.setState({ instruments: instruments })
-        console.log(instruments);
     }
 
     handleGenreChange = event => {
@@ -100,19 +97,16 @@ class Form1 extends React.Component {
 
         // Update state with new array of options
         this.setState({ genres: genres })
-        console.log(genres);
     }
 
     handleFormSubmit = event => {
         event.preventDefault();
 
-        console.log('Form submitted.', this.state)
-
         if (
             !this.state.firstname ||
             !this.state.lastname ||
             !this.state.bio ||
-            !this.state.instruments || 
+            !this.state.instruments ||
             !this.state.genres ||
             !this.state.selectedFile ||
             !this.state.portfolios
@@ -120,9 +114,9 @@ class Form1 extends React.Component {
             alert("Please fill out all fields!");
         }
         else {
-           // Create a child directory called images, and place the file inside this directory
-           const uploadTask =
-           storageRef.child(`images/${this.state.selectedFile.name}`).put(this.state.selectedFile);
+            // Create a child directory called images, and place the file inside this directory
+            const uploadTask =
+                storageRef.child(`images/${this.state.selectedFile.name}`).put(this.state.selectedFile);
 
             uploadTask.on("state_changed", snapshot => {
                 // Observe state changes 
@@ -131,24 +125,20 @@ class Form1 extends React.Component {
                 console.log(error);
             }, () => {
                 // Do something once upload completes
-                console.log("Image uploaded!");
                 storageService.ref("images").child(this.state.selectedFile.name)
-                .getDownloadURL().then(url => {
-                    console.log(url);
-                    this.setState({image: url})
-                    console.log(this.state.image)
+                    .getDownloadURL().then(url => {
+                        this.setState({ image: url })
 
-                    const { history } = this.props;
-                    const profileData = { ...this.state }
-                    console.log(profileData);
-                    if (validator.isURL(this.state.portfolios) === false) {
-                        alert("Please include a valid URL for your portfolio!")
-                    }
-                    else {
-                        API.createProfile(profileData)
-                        .then(() => history.push('/'))
-                    }
-                })
+                        const { history } = this.props;
+                        const profileData = { ...this.state }
+                        if (validator.isURL(this.state.portfolios) === false) {
+                            alert("Please include a valid URL for your portfolio!")
+                        }
+                        else {
+                            API.createProfile(profileData)
+                                .then(() => history.push('/'))
+                        }
+                    })
             });
         }
     }
@@ -176,7 +166,7 @@ class Form1 extends React.Component {
                                         onChange={this.handleInputChange}
                                     />
                                 </FormGroup>
-                                
+
                                 <FormGroup controlId="forminline Name">
                                     <ControlLabel>Last Name</ControlLabel>
                                     <FormControl
@@ -224,7 +214,7 @@ class Form1 extends React.Component {
 
                             <Col className="col-md-4">
                                 <ControlLabel>What Instruments/Technologies Do You Use?</ControlLabel>
-                                
+
                                 <FormGroup>
                                     <Checkbox
                                         inline

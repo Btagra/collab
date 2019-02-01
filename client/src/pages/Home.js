@@ -78,11 +78,11 @@ class Home extends Component {
         if (this.state.bmFirstName.length > 0) {
             bestMatch = (
                 <div>
-                    <h3> This is our best match!</h3>
-                    <h3> FullName: {this.state.bmFirstName} {this.state.bmLastName}</h3>
+                    <h3 className="bestmatch"> This is our best match!</h3>
+                    <h3 className="fullname"> Name: {this.state.bmFirstName} {this.state.bmLastName}</h3>
                     <img width={200} height={"auto"} src={this.state.bmimage} alt="no image" />
-                    <h3> Bio: {this.state.bmbio}</h3>
-                    <h3> Portfolio: {this.state.bmportfolios}</h3>
+                    <h3 className="bio"> Bio: {this.state.bmbio}</h3>
+                    <h3 className="portfolio"> Contact: {this.state.bmportfolios}</h3>
                 </div>
             )
         }
@@ -122,16 +122,16 @@ class Home extends Component {
                                 </Col>
                                 <Col xs={6} md={8}>
                                     <Media.Body>
-                                        <h1>Bio: </h1>{this.state.profiles.bio}
-                                        <h2>Instruments:</h2>
+                                        <h1 className="bio1">Bio: </h1>{this.state.profiles.bio}
+                                        <h2 className="instruments">Instruments:</h2>
                                         <ListGroup>
                                             {this.state.profiles.instruments.map((instrument, i) => <li key={i}>{instrument}</li>)}
                                         </ListGroup>
-                                        <h2>Genres:</h2>
+                                        <h2 className="genres">Genres:</h2>
                                         <ListGroup>
                                             {this.state.profiles.genres.map((genre, i) => <li key={i}>{genre}</li>)}
                                         </ListGroup>
-                                        <h2>Portfolio:</h2>
+                                        <h2 className="contact-link">Contact</h2>
                                         <ListGroup>
                                             <a href={this.state.profiles.portfolios}>{this.state.profiles.portfolios}</a>
                                         </ListGroup>

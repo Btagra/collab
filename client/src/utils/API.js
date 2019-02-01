@@ -14,6 +14,6 @@ export default {
     },
     getMatch: function (uid) {
         console.log('from API.js ', uid);
-        return axios.get("http://localhost:3001/api/profiles/compare/" + uid);
+        return axios.get("/api/profiles/compare/" + uid);
     }
 };

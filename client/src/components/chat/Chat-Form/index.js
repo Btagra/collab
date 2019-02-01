@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./style.css";
+
 class Form extends Component {
     constructor(props) {
         super(props)
@@ -11,12 +12,11 @@ class Form extends Component {
     }
 
     handleChange = (event) => {
-        console.log(event.target.value + "this is our event");
-
         this.setState({
             [event.target.name]: event.target.value,
         })
     }
+
     addToMessageBoard = (event) => {
         event.preventDefault()
         axios.post("/api/messages", {
@@ -27,16 +27,12 @@ class Form extends Component {
         })
             .then((res) => {
                 if (res.status === 200) {
-                    console.log('Request success: ', res)
                     this.setState({
                         name: '',
                         message: '',
                     })
-                    console.log(this.props.fetchMessages);
 
                     this.props.fetchMessages();
-                } else {
-                    console.log('Request failure: ', res)
                 }
             })
             .catch((error) => {

@@ -44,10 +44,6 @@ class Form1 extends React.Component {
         this.setState({ uid })
     }
 
-    imageUpload = event => {
-        console.log("hey")
-    }
-
     fileChangedHandler = event => {
         this.setState({ selectedFile: event.target.files[0] });
     }
@@ -312,6 +308,13 @@ class Form1 extends React.Component {
                                     </Checkbox>
                                     <br />
 
+                                    <Checkbox
+                                        inline
+                                        name="Drums"
+                                        onChange={this.handleCheckChange}
+                                    >
+                                        Drums
+                                    </Checkbox>
                                     <Checkbox
                                         inline
                                         name="Other"

@@ -36,7 +36,7 @@ class LoginForm extends React.Component {
 
                     localStorage.setItem("uid", uid)
                 }).catch((error) => {
-                    res.json(error);
+                    console.log(error);
                 });
             }
             else {
@@ -52,7 +52,7 @@ class LoginForm extends React.Component {
                     );
                 })
                 .catch((error) => {
-                    res.json(error);
+                    console.log(error);
                 })
             }
         }

@@ -54,7 +54,7 @@ class Home extends Component {
     fetchMatch = (uid) => {
         API.getMatch(uid)
             .then(res => {
-                this.setState({ bmFirstName: res.data.name, bmLastName: res.data.lastName, bmbio: res.data.bio, bmimage: res.data.image })
+                this.setState({ bmFirstName: res.data.name, bmLastName: res.data.lastName, bmbio: res.data.bio, bmimage: res.data.image, bmportfolios: res.data.portfolios })
             });
     }
 

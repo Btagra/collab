@@ -44,7 +44,7 @@ class Message extends Component {
         return (
 
             <div>
-                <h6> Welcome to Chat</h6>
+                <h6 className="welcome"> Welcome to Chat</h6>
                 <div className="chatData">{this.state.chatList}</div>
                 <Form fetchMessages={this.fetchMessages} />
             </div>

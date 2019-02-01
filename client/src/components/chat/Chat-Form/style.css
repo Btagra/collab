@@ -18,7 +18,7 @@ float: right;
 margin-left: 50px;
 width: 300px;
 }
-label {
+/* label {
     
     float: right;
     top: 15px;;
@@ -30,9 +30,9 @@ label {
             transform-origin: left;
     -webkit-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-    font-family: cursive;
-}
+    transition: all 0.3s ease; */
+    /* font-family: cursive; */
+/* } */
 
 .chat {
 margin: 8px;

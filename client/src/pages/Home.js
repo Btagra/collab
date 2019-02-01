@@ -83,7 +83,7 @@ class Home extends Component {
                     <h3 className="fullname">{this.state.bmFirstName} {this.state.bmLastName}</h3>
                     <img width={200} height={"auto"} src={this.state.bmimage} alt="no image" />
                     <h3 className="bio"> Bio: {this.state.bmbio}</h3>
-                    <h3 className="portfolio"> Contact: {this.state.bmportfolios}</h3>
+                    <h3 className="portfolio"> Contact: <a href={this.state.bmportfolios}>{this.state.bmportfolios}</a></h3>
                 </div>
             )
         }

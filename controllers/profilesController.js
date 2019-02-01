@@ -37,11 +37,9 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     compare: (req, res) => {
-
         db.User.find({ uid: req.params.uid })
             .populate("profiles")
             .then(result => {
-
                 db.Profile.find({}).then(function (data) {
                     var bestMatch = {
                         name: "",
@@ -87,11 +85,10 @@ module.exports = {
                                 bestMatch.bio = data[i].bio
                                 bestMatch.portfolios = data[i].portfolios
                             }
-
                         }
                     }
                     res.json(bestMatch)
-                })
+                });
             })
             .catch(err => {
                 res.status(422).json(err)

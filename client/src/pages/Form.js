@@ -44,10 +44,6 @@ class Form1 extends React.Component {
         this.setState({ uid })
     }
 
-    imageUpload = event => {
-        console.log("hey")
-    }
-
     fileChangedHandler = event => {
         this.setState({ selectedFile: event.target.files[0] });
     }
@@ -119,7 +115,7 @@ class Form1 extends React.Component {
                 storageRef.child(`images/${this.state.selectedFile.name}`).put(this.state.selectedFile);
 
             uploadTask.on("state_changed", snapshot => {
-                // Observe state changes 
+                // Observe state changes - can add upload progress here, etc.
             }, (error) => {
                 // Handle errors
                 console.log(error);
@@ -312,6 +308,13 @@ class Form1 extends React.Component {
                                     </Checkbox>
                                     <br />
 
+                                    <Checkbox
+                                        inline
+                                        name="Drums"
+                                        onChange={this.handleCheckChange}
+                                    >
+                                        Drums
+                                    </Checkbox>
                                     <Checkbox
                                         inline
                                         name="Other"

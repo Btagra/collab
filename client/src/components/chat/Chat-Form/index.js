@@ -37,7 +37,7 @@ class Form extends Component {
             }
         })
         .catch((error) => {
-            console.log('Request failure: ', error)
+            res.json(error);
         });
     }
 

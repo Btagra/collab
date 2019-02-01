@@ -9,7 +9,6 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     create: (req, res) => {
-        
         db.User.create({ uid: req.body.uid })
             .then(result => res.json(result))
             .catch(err => res.status(422).json(err));
